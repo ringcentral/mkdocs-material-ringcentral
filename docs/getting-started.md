@@ -197,11 +197,11 @@ markdown_extensions:
 ---
 
 !!! tip "Start from this demo site"
-    This documentation site is itself built with `mkdocs-material-ringcentral`. Clone the repo and use the `demo/` directory as a starter template.
+    This documentation site is itself built with `mkdocs-material-ringcentral`. Clone the repo and run `mkdocs serve` from the project root.
 
     ```bash
     git clone https://github.com/ringcentral/mkdocs-material-ringcentral.git
-    cd mkdocs-material-ringcentral/demo
-    pip install -r ../requirements.txt
+    cd mkdocs-material-ringcentral
+    pip install -r requirements.txt
     mkdocs serve
     ```

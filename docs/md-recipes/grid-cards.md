@@ -1,90 +1,46 @@
 # Grid cards (Markdown)
 
-The `grid cards` pattern is the primary navigation component for documentation index pages. It requires only Markdown list syntax inside a single `<div>` attribute — no HTML structure, no class nesting.
+The `grid cards` pattern is the primary navigation component for documentation index pages. Add a single modifier class alongside `grid cards` to apply a RingCentral brand style.
 
 ---
 
-## Basic syntax
-
-Every grid card is a list item (`-`) with three parts: an icon + bold title on the first line, a `---` separator, and body content.
+## Syntax
 
 ```markdown
+<div class="grid cards rc-bar" markdown>
+
+-   :material-icon-name: **Card title**
+
+    ---
+
+    Card description. One to three sentences.
+
+    [:octicons-arrow-right-24: Link label](target.md)
+
+</div>
+```
+
+!!! tip "Indentation"
+    Body content inside each list item must be indented by **four spaces**. The `---` separator and link line must match that indent level.
+
+---
+
+## Accepted class names
+
+| Class | Style |
+|-------|-------|
+| *(none)* | Muted surface, orange hover-ring fade-in |
+| `rc-bar` | White surface, left orange accent bar, warm shadow on hover |
+| `rc-navy` | Dark navy surface, orange text accents, lifted on dark hover |
+| `rc-gradient` | White surface, orange-to-lavender gradient border |
+
+---
+
+## Examples
+
+### Default
+
 <div class="grid cards" markdown>
-
--   :material-icon-name: **Card title**
-
-    ---
-
-    Card description text. One to three sentences. Can include
-    inline `code`, *emphasis*, or links.
-
-    [:octicons-arrow-right-24: Link label](target.md)
-
--   :material-icon-name: **Card title**
-
-    ---
-
-    Another card's description.
-
-    [:octicons-arrow-right-24: Link label](target.md)
-
-</div>
-```
-
-The `markdown` attribute on the `<div>` tells MkDocs Material to process the contents as Markdown. Without it, the list renders as raw HTML.
-
-!!! tip "Indentation matters"
-    Body content inside each list item must be indented by **four spaces**. The `---` separator and all subsequent lines — including the link — must match that indent level. Misaligned content will break the card structure.
-
----
-
-## RingCentral brand variants
-
-Add a single class to the `<div>` alongside `grid cards` to apply a brand style. The rendered example appears below each code block.
-
-### Bar (`rc-bar`)
-
-Left orange accent bar. Suited to pages where the grid sits alongside body text.
-
-```markdown
-<div class="grid cards rc-bar" markdown>
-
--   :material-shield-lock-outline: **Authentication**
-
-    ---
-
-    OAuth 2.0 flows, token lifecycle, and SSO integration patterns.
-
-    [:octicons-arrow-right-24: Read the guide](../getting-started.md)
-
--   :material-api: **REST API**
-
-    ---
-
-    Endpoint reference, authentication headers, and rate limits.
-
-    [:octicons-arrow-right-24: API reference](../resources/index.md)
-
--   :material-webhook: **Webhooks**
-
-    ---
-
-    Event subscriptions, payload schemas, and delivery guarantees.
-
-    [:octicons-arrow-right-24: Webhook guide](../resources/index.md)
-
--   :material-code-braces: **SDKs**
-
-    ---
-
-    Official client libraries for JavaScript, Python, Java, and C#.
-
-    [:octicons-arrow-right-24: Choose an SDK](../getting-started.md)
-
-</div>
-```
-
-<div class="grid cards rc-bar" markdown>
 
 -   :material-shield-lock-outline: **Authentication**
 
@@ -122,220 +78,133 @@ Left orange accent bar. Suited to pages where the grid sits alongside body text.
 
 ---
 
-### Navy (`rc-navy`)
+### `rc-bar`
 
-Dark navy surface with orange accents. Best for high-emphasis landing pages.
+<div class="grid cards rc-bar" markdown>
 
-```markdown
-<div class="grid cards rc-navy" markdown>
-
--   :material-phone-log: **Call logging**
+-   :material-shield-lock-outline: **Authentication**
 
     ---
 
-    Every call logged automatically — inbound, outbound, missed.
-    No manual entry, ever.
+    OAuth 2.0 flows, token lifecycle, and SSO integration patterns.
 
-    [:octicons-arrow-right-24: Learn more](../getting-started.md)
+    [:octicons-arrow-right-24: Read the guide](../getting-started.md)
 
--   :material-account-search: **Contact matching**
-
-    ---
-
-    Caller ID resolution against your CRM in under 200 ms.
-
-    [:octicons-arrow-right-24: Learn more](../getting-started.md)
-
--   :material-monitor-account: **Screen pop**
+-   :material-api: **REST API**
 
     ---
 
-    The right record surfaces before you say hello.
+    Endpoint reference, authentication headers, and rate limits.
 
-    [:octicons-arrow-right-24: Learn more](../getting-started.md)
+    [:octicons-arrow-right-24: API reference](../resources/index.md)
 
--   :material-robot-outline: **AI summaries**
-
-    ---
-
-    Post-call notes drafted from the transcript, ready to save.
-
-    [:octicons-arrow-right-24: Learn more](../getting-started.md)
-
-</div>
-```
-
-<div class="grid cards rc-navy" markdown>
-
--   :material-phone-log: **Call logging**
+-   :material-webhook: **Webhooks**
 
     ---
 
-    Every call logged automatically — inbound, outbound, missed.
-    No manual entry, ever.
+    Event subscriptions, payload schemas, and delivery guarantees.
 
-    [:octicons-arrow-right-24: Learn more](../getting-started.md)
+    [:octicons-arrow-right-24: Webhook guide](../resources/index.md)
 
--   :material-account-search: **Contact matching**
-
-    ---
-
-    Caller ID resolution against your CRM in under 200 ms.
-
-    [:octicons-arrow-right-24: Learn more](../getting-started.md)
-
--   :material-monitor-account: **Screen pop**
+-   :material-code-braces: **SDKs**
 
     ---
 
-    The right record surfaces before you say hello.
+    Official client libraries for JavaScript, Python, Java, and C#.
 
-    [:octicons-arrow-right-24: Learn more](../getting-started.md)
-
--   :material-robot-outline: **AI summaries**
-
-    ---
-
-    Post-call notes drafted from the transcript, ready to save.
-
-    [:octicons-arrow-right-24: Learn more](../getting-started.md)
+    [:octicons-arrow-right-24: Choose an SDK](../getting-started.md)
 
 </div>
 
 ---
 
-### Gradient (`rc-gradient`)
+### `rc-navy`
 
-Orange-to-lavender gradient border. Signature style for design-system and brand documentation.
+<div class="grid cards rc-navy" markdown>
 
-```markdown
-<div class="grid cards rc-gradient" markdown>
-
--   :material-palette-outline: **Colors**
+-   :material-shield-lock-outline: **Authentication**
 
     ---
 
-    Brand tokens, semantic roles, and WCAG contrast ratios.
+    OAuth 2.0 flows, token lifecycle, and SSO integration patterns.
 
-    [:octicons-arrow-right-24: View palette](../foundations/colors.md)
+    [:octicons-arrow-right-24: Read the guide](../getting-started.md)
 
--   :material-format-font: **Typography**
-
-    ---
-
-    Inter Tight type scale, weights, and line-length guidelines.
-
-    [:octicons-arrow-right-24: View type scale](../foundations/typography.md)
-
--   :material-grid: **Spacing**
+-   :material-api: **REST API**
 
     ---
 
-    4px base grid, component defaults, and CSS custom properties.
+    Endpoint reference, authentication headers, and rate limits.
 
-    [:octicons-arrow-right-24: View spacing](../foundations/spacing.md)
+    [:octicons-arrow-right-24: API reference](../resources/index.md)
 
--   :material-motion-play-outline: **Motion**
+-   :material-webhook: **Webhooks**
 
     ---
 
-    Duration tokens, easing curves, and reduced-motion guidance.
+    Event subscriptions, payload schemas, and delivery guarantees.
 
-    [:octicons-arrow-right-24: View motion](../foundations/motion.md)
+    [:octicons-arrow-right-24: Webhook guide](../resources/index.md)
+
+-   :material-code-braces: **SDKs**
+
+    ---
+
+    Official client libraries for JavaScript, Python, Java, and C#.
+
+    [:octicons-arrow-right-24: Choose an SDK](../getting-started.md)
 
 </div>
-```
+
+---
+
+### `rc-gradient`
 
 <div class="grid cards rc-gradient" markdown>
 
--   :material-palette-outline: **Colors**
+-   :material-shield-lock-outline: **Authentication**
 
     ---
 
-    Brand tokens, semantic roles, and WCAG contrast ratios.
+    OAuth 2.0 flows, token lifecycle, and SSO integration patterns.
 
-    [:octicons-arrow-right-24: View palette](../foundations/colors.md)
+    [:octicons-arrow-right-24: Read the guide](../getting-started.md)
 
--   :material-format-font: **Typography**
-
-    ---
-
-    Inter Tight type scale, weights, and line-length guidelines.
-
-    [:octicons-arrow-right-24: View type scale](../foundations/typography.md)
-
--   :material-grid: **Spacing**
+-   :material-api: **REST API**
 
     ---
 
-    4px base grid, component defaults, and CSS custom properties.
+    Endpoint reference, authentication headers, and rate limits.
 
-    [:octicons-arrow-right-24: View spacing](../foundations/spacing.md)
+    [:octicons-arrow-right-24: API reference](../resources/index.md)
 
--   :material-motion-play-outline: **Motion**
+-   :material-webhook: **Webhooks**
 
     ---
 
-    Duration tokens, easing curves, and reduced-motion guidance.
+    Event subscriptions, payload schemas, and delivery guarantees.
 
-    [:octicons-arrow-right-24: View motion](../foundations/motion.md)
+    [:octicons-arrow-right-24: Webhook guide](../resources/index.md)
+
+-   :material-code-braces: **SDKs**
+
+    ---
+
+    Official client libraries for JavaScript, Python, Java, and C#.
+
+    [:octicons-arrow-right-24: Choose an SDK](../getting-started.md)
 
 </div>
 
 ---
 
-## Card count and column layout
+## When to use each variant
 
-The grid fills columns automatically using `repeat(auto-fill, minmax(10rem, 1fr))`. The practical column counts by card count are:
+| Variant | Best for |
+|---------|----------|
+| Default | Neutral reference navigation inside content pages |
+| `rc-bar` | Grids that sit alongside body text |
+| `rc-navy` | Standalone landing pages and getting-started hubs |
+| `rc-gradient` | Design system, brand, and component documentation |
 
-| Cards | Columns (desktop) | Notes |
-|-------|-------------------|-------|
-| 2 | 2 | Natural 50/50 split |
-| 3 | 3 | Fills the row evenly |
-| 4 | 4 or 2×2 | Depends on viewport width |
-| 5–6 | Wraps to multiple rows | Avoid odd counts — the last row looks unbalanced |
-| 8 | 4×2 | Clean grid, the maximum recommended |
-
-For a deliberate 2-column grid at any count, override the column width:
-
-```html
-<div class="grid cards" style="grid-template-columns: repeat(2, minmax(0,1fr));" markdown>
-```
-
----
-
-## Cards without links
-
-The `[:octicons-arrow-right-24: Label](url)` link line is optional. Omit it for informational cards that don't need a call to action:
-
-```markdown
-<div class="grid cards" markdown>
-
--   :material-check-circle-outline: **WCAG AA**
-
-    ---
-
-    All interactive elements meet 4.5:1 contrast on default and slate themes.
-
--   :material-check-circle-outline: **Keyboard navigation**
-
-    ---
-
-    Tab order follows reading order. All interactive elements are reachable
-    without a mouse.
-
-</div>
-```
-
----
-
-## Choosing a variant
-
-| Variant | Class | When to use |
-|---------|-------|-------------|
-| Default | *(none)* | Neutral navigation inside reference pages |
-| Bar | `rc-bar` | Any page where the grid sits within body content |
-| Navy | `rc-navy` | Standalone landing pages, getting-started hubs |
-| Gradient | `rc-gradient` | Design system, brand, and component documentation |
-
-See the [Grid cards component page](../components/grid-cards.md) for the full spec including colour values, hover states, and dark-mode behaviour.
+See the [Grid cards component page](../components/grid-cards.md) for the full spec including colour values, hover states, dark-mode behaviour, and the auto-numbered counter system.

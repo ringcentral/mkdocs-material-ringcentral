@@ -143,6 +143,7 @@ nav:
       - Content Pages: recipes/content-pages.md
     - Markdown:
       - Grid Cards: md-recipes/grid-cards.md
+      - Code Blocks: md-recipes/code-blocks.md
       - Admonitions: md-recipes/admonitions.md
       - Tabs: md-recipes/tabs.md
       - Tables: md-recipes/tables.md

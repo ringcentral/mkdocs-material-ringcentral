@@ -48,8 +48,6 @@ _RC_ASSETS = [
 # Checked in order; first match wins.
 _SITE_URL_MAP = [
     ("appconnect.labs.ringcentral.com", "app-connect"),
-    ("embeddable.ringcentral.com",      "rc-embeddable"),
-    ("callme.ringcentral.com",          "call-me"),
     ("mcp.ringcentral.com",             "ringcentral-mcp"),
 ]
 
