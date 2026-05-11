@@ -198,6 +198,7 @@ theme:
     - search.highlight
     - content.tabs.link
     - content.code.copy
+    - content.code.annotate
   palette:
     - scheme: default
       primary: custom

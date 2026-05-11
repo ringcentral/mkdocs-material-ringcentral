@@ -188,31 +188,71 @@ Set `#!yaml enabled: true` in your config.
 
 ## Code annotations
 
-Annotations attach numbered call-outs to specific lines. Place a comment marker in the code (`# (1)`) then define the annotation text below the block. Requires `pymdownx.superfences` and `attr_list`.
+Annotations attach numbered call-outs to any line. Click the number in the rendered block to expand the note. Place a comment marker in the code (`# (1)!`) then add a matching ordered list immediately after the closing fence.
+
+The `!` suffix strips the comment from the rendered output so readers see clean code.
 
 ````markdown
-```yaml
-plugins:
-  - material-ringcentral: # (1)!
-  - search:
-      separator: '[\s\-\.]+'
+```python linenums="1"
+import ringcentral # (1)!
+
+sdk = ringcentral.SDK(
+    client_id="YOUR_CLIENT_ID",       # (2)!
+    client_secret="YOUR_CLIENT_SECRET",
+    server="https://platform.ringcentral.com",
+)
+
+platform = sdk.platform()
+platform.login(jwt="YOUR_JWT_TOKEN") # (3)!
 ```
 
-1. No configuration required — the plugin resolves the active Labs project
-   automatically from `site_url`.
+1.  Import the official RingCentral Python SDK.
+    Install it with `pip install ringcentral`.
+2.  Never hard-code credentials in source files.
+    Use environment variables or a secrets manager:
+    ```python
+    import os
+    client_id = os.environ["RC_CLIENT_ID"]
+    ```
+3.  JWT auth is the recommended flow for server-to-server integrations.
+    See the [Auth guide](../getting-started.md) for the full token lifecycle.
 ````
 
-```yaml
-plugins:
-  - material-ringcentral: # (1)!
-  - search:
-      separator: '[\s\-\.]+'
+```python linenums="1"
+import ringcentral # (1)!
+
+sdk = ringcentral.SDK(
+    client_id="YOUR_CLIENT_ID",       # (2)!
+    client_secret="YOUR_CLIENT_SECRET",
+    server="https://platform.ringcentral.com",
+)
+
+platform = sdk.platform()
+platform.login(jwt="YOUR_JWT_TOKEN") # (3)!
 ```
 
-1. No configuration required — the plugin resolves the active Labs project
-   automatically from `site_url`.
+1.  Import the official RingCentral Python SDK.
+    Install it with `pip install ringcentral`.
+2.  Never hard-code credentials in source files.
+    Use environment variables or a secrets manager:
+    ```python
+    import os
+    client_id = os.environ["RC_CLIENT_ID"]
+    ```
+3.  JWT auth is the recommended flow for server-to-server integrations.
+    See the [Auth guide](../getting-started.md) for the full token lifecycle.
 
-The `!` after the number strips the comment from the rendered output so readers see clean code.
+!!! note "Enabling annotations"
+    Annotations require `content.code.annotate` in your `mkdocs.yml` feature list.
+    Once enabled, every code block on every page supports them — no per-block attribute needed.
+
+    ```yaml
+    theme:
+      features:
+        - content.code.annotate
+    ```
+
+    Annotation content is full Markdown — inline code, bold, links, and nested fenced blocks all render inside the pop-up.
 
 ---
 
