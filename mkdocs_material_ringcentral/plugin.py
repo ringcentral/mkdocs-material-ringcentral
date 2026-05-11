@@ -29,10 +29,11 @@ import os
 import shutil
 
 from jinja2 import ChoiceLoader, FileSystemLoader
+from mkdocs.config import config_options
 from mkdocs.plugins import BasePlugin
 
-PLUGIN_DIR   = os.path.dirname(__file__)
-ASSETS_DIR   = os.path.join(PLUGIN_DIR, "assets")
+PLUGIN_DIR    = os.path.dirname(__file__)
+ASSETS_DIR    = os.path.join(PLUGIN_DIR, "assets")
 TEMPLATES_DIR = os.path.join(PLUGIN_DIR, "templates")
 
 # Assets copied to <site_dir>/_rc/
@@ -43,12 +44,30 @@ _RC_ASSETS = [
     "RingCentral_logo_color.png",
 ]
 
+# Map site_url hostnames → canonical project keys.
+# Checked in order; first match wins.
+_SITE_URL_MAP = [
+    ("appconnect.labs.ringcentral.com", "app-connect"),
+    ("embeddable.ringcentral.com",      "rc-embeddable"),
+    ("callme.ringcentral.com",          "call-me"),
+    ("mcp.ringcentral.com",             "ringcentral-mcp"),
+]
+
 
 class RingCentralPlugin(BasePlugin):
     """MkDocs plugin that applies the RingCentral brand layer."""
 
+    config_scheme = (
+        # Explicit project key — set this in mkdocs.yml under `plugins:
+        #   - material-ringcentral:
+        #       labs_project: design-system`
+        # If omitted the plugin falls back to extra.labs_project, then
+        # auto-detects from site_url.
+        ("labs_project", config_options.Type(str, default="")),
+    )
+
     # ------------------------------------------------------------------
-    # 1. Inject CSS / JS and set the logo
+    # 1. Inject CSS / JS, set the logo, resolve the active Labs project
     # ------------------------------------------------------------------
     def on_config(self, config):
         # Prepend brand CSS (ringcentral.css is the full stylesheet)
@@ -64,6 +83,27 @@ class RingCentralPlugin(BasePlugin):
         # Override the logo to use the bundled asset.
         # MkDocs Material's | url filter resolves this relative to each page.
         config["theme"]["logo"] = "_rc/RingCentral_logo_color.png"
+
+        # ---- Resolve the active Labs project key ----------------------
+        # Priority: plugin config → extra.labs_project → site_url hostname
+        active = (self.config.get("labs_project") or "").strip()
+
+        if not active:
+            active = (
+                (config.get("extra") or {}).get("labs_project") or ""
+            ).strip()
+
+        if not active:
+            site_url = (config.get("site_url") or "").lower()
+            for hint, key in _SITE_URL_MAP:
+                if hint in site_url:
+                    active = key
+                    break
+
+        # Inject into extra so the Jinja2 template can read it.
+        if not config.get("extra"):
+            config["extra"] = {}
+        config["extra"]["_labs_active_project"] = active
 
         return config
 

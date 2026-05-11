@@ -93,59 +93,71 @@
    5. Left sidebar
    -------------------------------------------------------------------------- */
 
-/* Sidebar gradient: paint on .md-main__inner so it aligns exactly with the
-   sidebar column. The body and containers are transparent so the gradient
-   shows through. A full-height ::after line replaces the sidebar border so
-   it extends all the way to the bottom of the content area. */
+/* Base page background — both mobile and desktop */
 body:not(:has(.ac-home)) {
   background: #ffffff;
 }
 body:not(:has(.ac-home)) .md-container,
 body:not(:has(.ac-home)) .md-main,
 body:not(:has(.ac-home)) .md-content { background: transparent !important; }
+/* position: relative needed for the ::after divider (desktop only) */
 body:not(:has(.ac-home)) .md-main__inner {
-  background:
-    linear-gradient(180deg, #FFF4EF 0%, #F9F0F9 55%, #EFF3FA 100%)
-    left top / 240px 100% no-repeat,
-    #ffffff !important;
   position: relative;
-}
-/* Full-height divider line between sidebar and content */
-body:not(:has(.ac-home)) .md-main__inner::after {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 240px;
-  width: 0.5px;
-  height: 100%;
-  background: #DDD0D8;
-  pointer-events: none;
-  z-index: 0;
+  background: #ffffff !important;
 }
 
 /* Kill any lingering ::before pseudo-elements from the plugin CSS */
 body:not(:has(.ac-home))::before { content: none !important; display: none !important; }
 
-/* Sidebar width — override Material's 12.1rem default */
-/* Remove sticky positioning and internal scroll so the whole page scrolls as one unit */
-.md-sidebar--primary {
-  width: 240px !important;
-  background: transparent !important;
-  border-right: none;
-  position: static !important;
-  height: auto !important;
-  max-height: none !important;
-  overflow: visible !important;
-  align-self: flex-start;
+/* ── Desktop only: sidebar gradient + divider + layout overrides ──────────
+   Below 76.25em Material hides the primary sidebar and opens it as a
+   slide-out drawer. All sidebar-specific CSS must live inside this query so
+   Material's own responsive mechanism can function on narrow viewports.
+   ────────────────────────────────────────────────────────────────────────── */
+@media screen and (min-width: 76.25em) {
+  /* Sidebar gradient: painted on .md-main__inner so it aligns with the column */
+  body:not(:has(.ac-home)) .md-main__inner {
+    background:
+      linear-gradient(180deg, #FFF4EF 0%, #F9F0F9 55%, #EFF3FA 100%)
+      left top / 240px 100% no-repeat,
+      #ffffff !important;
+  }
+
+  /* Full-height divider line between sidebar and content */
+  body:not(:has(.ac-home)) .md-main__inner::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 240px;
+    width: 0.5px;
+    height: 100%;
+    background: #DDD0D8;
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  /* Sidebar width — override Material's 12.1rem default.
+     position: static removes sticky scroll so the whole page scrolls as one unit.
+     Wrapped in this query so Material's drawer still works on narrow viewports. */
+  .md-sidebar--primary {
+    width: 240px !important;
+    background: transparent !important;
+    border-right: none;
+    position: static !important;
+    height: auto !important;
+    max-height: none !important;
+    overflow: visible !important;
+    align-self: flex-start;
+  }
+  .md-sidebar--primary .md-sidebar__scrollwrap {
+    background: transparent !important;
+    overflow-y: visible !important;
+    max-height: none !important;
+    height: auto !important;
+    position: static !important;
+  }
+  .md-sidebar--primary::before { content: none !important; }
 }
-.md-sidebar--primary .md-sidebar__scrollwrap {
-  background: transparent !important;
-  overflow-y: visible !important;
-  max-height: none !important;
-  height: auto !important;
-  position: static !important;
-}
-.md-sidebar--primary::before { content: none !important; }
 
 /* Sidebar brand label at the very top (site name) */
 .md-sidebar--primary .md-nav__title {
@@ -274,13 +286,20 @@ body[data-md-color-scheme="slate"]:not(:has(.ac-home)) {
   background: #0F1320;
 }
 body[data-md-color-scheme="slate"]:not(:has(.ac-home)) .md-main__inner {
-  background:
-    linear-gradient(180deg, #1A1015 0%, #171424 30%, #131928 65%, #0F1117 100%)
-    left top / 240px 100% no-repeat,
-    #0F1320 !important;
+  background: #0F1320 !important;
 }
-body[data-md-color-scheme="slate"]:not(:has(.ac-home)) .md-main__inner::after {
-  background: rgba(255,255,255,0.06);
+
+/* Desktop only: dark-mode sidebar gradient + divider */
+@media screen and (min-width: 76.25em) {
+  body[data-md-color-scheme="slate"]:not(:has(.ac-home)) .md-main__inner {
+    background:
+      linear-gradient(180deg, #1A1015 0%, #171424 30%, #131928 65%, #0F1117 100%)
+      left top / 240px 100% no-repeat,
+      #0F1320 !important;
+  }
+  body[data-md-color-scheme="slate"]:not(:has(.ac-home)) .md-main__inner::after {
+    background: rgba(255,255,255,0.06);
+  }
 }
 [data-md-color-scheme="slate"] .md-sidebar--primary { background: transparent !important; }
 [data-md-color-scheme="slate"] .md-sidebar--primary   { border-right-color: rgba(255,255,255,.06); }
@@ -1857,3 +1876,256 @@ body:has(.ac-home) .md-main { overflow-x: clip; }
 #return-values + p + .md-typeset__scrollwrap table th:first-of-type,
 #request-parameters + .md-typeset__scrollwrap table th:first-of-type,
 #input-parameters + .md-typeset__scrollwrap table th:first-of-type { width: 250px; }
+
+/* --------------------------------------------------------------------------
+   16. Grid cards — Variation D
+   Muted surface + orange border-on-hover, auto-generated decimal counters.
+   No changes to Markdown syntax required.
+   -------------------------------------------------------------------------- */
+
+/* Counter reset on the list wrapper */
+.md-typeset .grid.cards {
+  counter-reset: sol-card;
+}
+
+/* Each card item */
+.md-typeset .grid.cards > ul > li,
+.md-typeset ul.grid.cards > li {
+  background: var(--md-code-bg-color) !important;
+  border: 1px solid var(--md-default-fg-color--lightest) !important;
+  border-radius: 10px !important;
+  box-shadow: none !important;
+  position: relative;
+  transition: background 0.15s ease;
+  counter-increment: sol-card;
+}
+
+/* Orange border overlay on hover — fades in via opacity, card never moves */
+.md-typeset .grid.cards > ul > li::after,
+.md-typeset ul.grid.cards > li::after {
+  content: "";
+  position: absolute;
+  inset: -1px;
+  border-radius: 10px;
+  border: 1.5px solid var(--md-primary-fg-color);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.18s ease;
+}
+
+.md-typeset .grid.cards > ul > li:hover::after,
+.md-typeset ul.grid.cards > li:hover::after {
+  opacity: 1;
+}
+
+/* Auto-numbered counter badge — top-right corner */
+.md-typeset .grid.cards > ul > li::before,
+.md-typeset ul.grid.cards > li::before {
+  content: counter(sol-card, decimal-leading-zero);
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  font-family: var(--md-code-font-family), monospace;
+  font-size: 0.6875rem;
+  line-height: 1;
+  color: var(--md-default-fg-color--lighter);
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Prevent the card title from running under the counter */
+.md-typeset .grid.cards > ul > li > :first-child,
+.md-typeset ul.grid.cards > li > :first-child {
+  padding-right: 2rem;
+}
+
+/* HR separator */
+.md-typeset .grid.cards > ul > li hr,
+.md-typeset ul.grid.cards > li hr {
+  border-color: var(--md-default-fg-color--lightest);
+  margin: 0.6rem 0;
+}
+
+/* Links */
+.md-typeset .grid.cards > ul > li a,
+.md-typeset ul.grid.cards > li a {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--md-primary-fg-color);
+  text-decoration: none;
+}
+
+.md-typeset .grid.cards > ul > li a:hover,
+.md-typeset ul.grid.cards > li a:hover {
+  text-decoration: underline;
+}
+
+/* --------------------------------------------------------------------------
+   17. Grid card variant — rc-bar
+   Left orange accent bar; warm shadow on hover.
+   Usage: <div class="grid cards rc-bar" markdown>
+   -------------------------------------------------------------------------- */
+
+.md-typeset .grid.cards.rc-bar > ul > li,
+.md-typeset ul.grid.cards.rc-bar > li {
+  background: var(--md-default-bg-color) !important;
+  border: 1px solid var(--md-default-fg-color--lightest) !important;
+  border-left: 3px solid var(--md-primary-fg-color) !important;
+  border-radius: 0 10px 10px 0 !important;
+  box-shadow: none !important;
+}
+
+/* Suppress the ::after ring — hover is expressed via box-shadow */
+.md-typeset .grid.cards.rc-bar > ul > li::after,
+.md-typeset ul.grid.cards.rc-bar > li::after {
+  display: none;
+}
+
+.md-typeset .grid.cards.rc-bar > ul > li:hover,
+.md-typeset ul.grid.cards.rc-bar > li:hover {
+  box-shadow: 0 2px 14px rgba(255, 136, 0, .13) !important;
+}
+
+/* --------------------------------------------------------------------------
+   18. Grid card variant — rc-navy
+   Dark navy surface with orange text accents. Matches hero / AI section tone.
+   Usage: <div class="grid cards rc-navy" markdown>
+   -------------------------------------------------------------------------- */
+
+.md-typeset .grid.cards.rc-navy > ul > li,
+.md-typeset ul.grid.cards.rc-navy > li {
+  background: #1B2A4A !important;
+  border: 1px solid rgba(255, 136, 0, .22) !important;
+  border-radius: 10px !important;
+  box-shadow: none !important;
+}
+
+.md-typeset .grid.cards.rc-navy > ul > li:hover,
+.md-typeset ul.grid.cards.rc-navy > li:hover {
+  background: #22345A !important;
+  border-color: rgba(255, 136, 0, .50) !important;
+}
+
+/* ::after ring — orange tint for dark bg */
+.md-typeset .grid.cards.rc-navy > ul > li::after,
+.md-typeset ul.grid.cards.rc-navy > li::after {
+  border-color: rgba(255, 136, 0, .55);
+}
+
+/* Counter badge — lighter against dark bg */
+.md-typeset .grid.cards.rc-navy > ul > li::before,
+.md-typeset ul.grid.cards.rc-navy > li::before {
+  color: rgba(255, 255, 255, .22);
+}
+
+/* Text: titles white, descriptions muted blue */
+.md-typeset .grid.cards.rc-navy > ul > li p strong,
+.md-typeset ul.grid.cards.rc-navy > li p strong {
+  color: #F1F5F9;
+}
+
+.md-typeset .grid.cards.rc-navy > ul > li p,
+.md-typeset ul.grid.cards.rc-navy > li p {
+  color: #8B9BB8;
+}
+
+.md-typeset .grid.cards.rc-navy > ul > li hr,
+.md-typeset ul.grid.cards.rc-navy > li hr {
+  border-color: rgba(255, 255, 255, .09) !important;
+}
+
+.md-typeset .grid.cards.rc-navy > ul > li a,
+.md-typeset ul.grid.cards.rc-navy > li a {
+  color: #FFAA40 !important;
+}
+
+/* Dark mode: lift the navy slightly so it reads against the slate page bg */
+[data-md-color-scheme="slate"] .md-typeset .grid.cards.rc-navy > ul > li,
+[data-md-color-scheme="slate"] .md-typeset ul.grid.cards.rc-navy > li {
+  background: #243558 !important;
+  border-color: rgba(255, 136, 0, .30) !important;
+}
+
+[data-md-color-scheme="slate"] .md-typeset .grid.cards.rc-navy > ul > li:hover,
+[data-md-color-scheme="slate"] .md-typeset ul.grid.cards.rc-navy > li:hover {
+  background: #2C3E66 !important;
+}
+
+/* --------------------------------------------------------------------------
+   19. Grid card variant — rc-gradient
+   White surface framed by an orange-to-lavender gradient border.
+   Uses background-clip: padding-box / border-box — no pseudo-element needed.
+   Usage: <div class="grid cards rc-gradient" markdown>
+   -------------------------------------------------------------------------- */
+
+.md-typeset .grid.cards.rc-gradient > ul > li,
+.md-typeset ul.grid.cards.rc-gradient > li {
+  background:
+    linear-gradient(var(--md-default-bg-color), var(--md-default-bg-color)) padding-box,
+    linear-gradient(135deg, #FF8800 0%, #C94BD6 100%) border-box !important;
+  border: 1.5px solid transparent !important;
+  border-radius: 10px !important;
+  box-shadow: none !important;
+}
+
+/* Suppress the ::after ring — the gradient border IS the visual brand */
+.md-typeset .grid.cards.rc-gradient > ul > li::after,
+.md-typeset ul.grid.cards.rc-gradient > li::after {
+  display: none;
+}
+
+.md-typeset .grid.cards.rc-gradient > ul > li:hover,
+.md-typeset ul.grid.cards.rc-gradient > li:hover {
+  box-shadow: 0 4px 18px rgba(255, 136, 0, .12) !important;
+}
+
+/* --------------------------------------------------------------------------
+   20. Mobile responsive fixes
+   Breakpoints:
+     600px  — single-column layout, touch-friendly spacing
+     820px  — footer two-column collapse (already defined above; extended here)
+   Material's own 76.25em (1220px) breakpoint hides the primary sidebar and
+   opens it as a drawer — all sidebar CSS is gated there (see section 5).
+   -------------------------------------------------------------------------- */
+
+@media screen and (max-width: 600px) {
+
+  /* ── Grid card variants: 2-col → 1-col ─────────────────────── */
+  .md-typeset .grid.cards,
+  .md-typeset ul.grid.cards {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* ── Footer: projects single-column on phones ───────────────── */
+  .rc-labs-footer__projects {
+    grid-template-columns: 1fr !important;
+  }
+  .rc-labs-footer__inner {
+    padding: 1.75rem 1.25rem 1.25rem;
+  }
+
+  /* ── Ticker: hide label, allow pills to wrap ─────────────────── */
+  .ac-v5-ticker-label { display: none; }
+  .ac-v5-ticker-overflow { overflow: hidden; }
+
+  /* ── CRM marketing grids: 1-col ─────────────────────────────── */
+  .crm-mkt__grid { grid-template-columns: 1fr !important; }
+
+  /* ── rc-cards (General purpose card grids) ───────────────────── */
+  .rc-cards { grid-template-columns: 1fr !important; }
+
+  /* ── Announce banner: allow wrapping ─────────────────────────── */
+  .md-banner__inner { white-space: normal; }
+}
+
+@media screen and (max-width: 820px) {
+  /* Footer projects: already 2-col at 820px (see section above).
+     Ensure nav links wrap sensibly. */
+  .rc-labs-footer__nav {
+    flex-wrap: wrap;
+    gap: 0.4rem 1rem;
+  }
+  .rc-labs-footer__bar {
+    padding: 0.85rem 1.25rem;
+  }
+}

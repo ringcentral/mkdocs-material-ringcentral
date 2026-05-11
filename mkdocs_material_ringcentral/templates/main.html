@@ -1,10 +1,70 @@
 {% extends "base.html" %}
 
+{#
+  Resolve the active project key injected by plugin.py.
+  Falls back to empty string if the key was never set (e.g. local dev
+  without a site_url or a labs_project config entry).
+#}
+{% set _active = config.extra.get("_labs_active_project", "") if config.extra else "" %}
+
+{# ------------------------------------------------------------------ #}
+{# Announce banner — project-aware                                     #}
+{# ------------------------------------------------------------------ #}
 {% block announce %}
-  App Connect 2.0 BETA is here with more features and support for more CRMs! <a href="{{ config.site_url }}2.0/" class="upgrade-button">Try it out</a>
+  {% if _active == "app-connect" %}
+    App Connect 2.0 BETA is here with more features and support for more CRMs!
+    <a href="{{ config.site_url }}2.0/" class="upgrade-button">Try it out</a>
+  {% elif _active == "design-system" %}
+    The RingCentral Design System is now in public beta — share feedback on
+    <a href="https://github.com/ringcentral/mkdocs-material-ringcentral/discussions" target="_blank" rel="noopener" class="upgrade-button">GitHub Discussions</a>
+  {% endif %}
 {% endblock %}
 
+{# ------------------------------------------------------------------ #}
+{# Footer                                                              #}
+{# ------------------------------------------------------------------ #}
 {% block footer %}
+
+{#
+  Labs project registry.
+  Each entry:
+    key   — matches what plugin.py injects as _labs_active_project
+    name  — display name in the footer card
+    desc  — one-line description
+    href  — canonical public URL (used when this is NOT the active site)
+    badge — optional badge text ("New") or none/empty for no badge
+#}
+{% set _projects = [
+  {
+    "key":   "app-connect",
+    "name":  "App Connect",
+    "desc":  "CRM integration for RingEX",
+    "href":  "https://appconnect.labs.ringcentral.com/",
+    "badge": ""
+  },
+  {
+    "key":   "rc-embeddable",
+    "name":  "RC Embeddable",
+    "desc":  "Embed RingEX in any web app",
+    "href":  "https://github.com/ringcentral/ringcentral-embeddable",
+    "badge": ""
+  },
+  {
+    "key":   "call-me",
+    "name":  "Call Me",
+    "desc":  "One-click calling from any page",
+    "href":  "https://github.com/ringcentral/call-me",
+    "badge": "New"
+  },
+  {
+    "key":   "ringcentral-mcp",
+    "name":  "RingCentral MCP",
+    "desc":  "AI tool integration for RingEX",
+    "href":  "https://github.com/ringcentral/ringcentral-mcp",
+    "badge": "New"
+  }
+] %}
+
 <footer class="rc-labs-footer">
   <div class="rc-labs-footer__inner">
 
@@ -21,37 +81,30 @@
       </p>
     </div>
 
-    <!-- Right: other projects -->
+    <!-- Right: Labs project cards -->
     <div class="rc-labs-footer__right">
-      <p class="rc-labs-footer__label">Other projects from RingCentral Labs</p>
+      <p class="rc-labs-footer__label">Projects from RingCentral Labs</p>
       <div class="rc-labs-footer__projects">
 
-        <!-- App Connect — YOU ARE HERE -->
-        <div class="rc-labs-footer__proj rc-labs-footer__proj--active">
-          <span class="rc-labs-footer__badge rc-labs-footer__badge--here">You are here</span>
-          <div class="rc-labs-footer__proj-name">App Connect</div>
-          <div class="rc-labs-footer__proj-desc">CRM integration for RingEX</div>
-        </div>
-
-        <!-- RC Embeddable -->
-        <a href="https://github.com/ringcentral/ringcentral-embeddable" class="rc-labs-footer__proj" target="_blank" rel="noopener">
-          <div class="rc-labs-footer__proj-name">RC Embeddable</div>
-          <div class="rc-labs-footer__proj-desc">Embed RingEX in any web app</div>
-        </a>
-
-        <!-- Call Me -->
-        <a href="https://github.com/ringcentral/call-me" class="rc-labs-footer__proj" target="_blank" rel="noopener">
-          <span class="rc-labs-footer__badge rc-labs-footer__badge--new">New</span>
-          <div class="rc-labs-footer__proj-name">Call Me</div>
-          <div class="rc-labs-footer__proj-desc">One-click calling from any page</div>
-        </a>
-
-        <!-- RingCentral MCP -->
-        <a href="https://github.com/ringcentral/ringcentral-mcp" class="rc-labs-footer__proj" target="_blank" rel="noopener">
-          <span class="rc-labs-footer__badge rc-labs-footer__badge--new">New</span>
-          <div class="rc-labs-footer__proj-name">RingCentral MCP</div>
-          <div class="rc-labs-footer__proj-desc">AI tool integration for RingEX</div>
-        </a>
+        {% for proj in _projects %}
+          {% if _active and _active == proj.key %}
+            {# Active site — non-linked "You are here" card #}
+            <div class="rc-labs-footer__proj rc-labs-footer__proj--active">
+              <span class="rc-labs-footer__badge rc-labs-footer__badge--here">You are here</span>
+              <div class="rc-labs-footer__proj-name">{{ proj.name }}</div>
+              <div class="rc-labs-footer__proj-desc">{{ proj.desc }}</div>
+            </div>
+          {% else %}
+            {# Every other project — linked card #}
+            <a href="{{ proj.href }}" class="rc-labs-footer__proj" target="_blank" rel="noopener">
+              {% if proj.badge %}
+                <span class="rc-labs-footer__badge rc-labs-footer__badge--new">{{ proj.badge }}</span>
+              {% endif %}
+              <div class="rc-labs-footer__proj-name">{{ proj.name }}</div>
+              <div class="rc-labs-footer__proj-desc">{{ proj.desc }}</div>
+            </a>
+          {% endif %}
+        {% endfor %}
 
       </div>
     </div>
@@ -64,10 +117,9 @@
     <nav class="rc-labs-footer__nav">
       <a href="https://support.ringcentral.com" target="_blank" rel="noopener">Support</a>
       <a href="https://www.ringcentral.com/legal/privacy-notice.html" target="_blank" rel="noopener">Privacy</a>
-      <a href="{{ config.site_url }}releases/" >Release notes</a>
+      <a href="{{ config.site_url }}releases/">Release notes</a>
       <a href="https://github.com/ringcentral/rc-unified-crm-extension" target="_blank" rel="noopener">GitHub</a>
     </nav>
   </div>
 </footer>
 {% endblock %}
-

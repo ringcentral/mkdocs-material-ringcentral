@@ -28,7 +28,7 @@ theme:
       accent: indigo
 
 plugins:
-  - material-ringcentral
+  - material-ringcentral:
   - search:
       separator: '[\s\-\.]+'
 
@@ -90,6 +90,7 @@ nav:
       - Forms: components/forms.md
     - Display:
       - Cards: components/cards.md
+      - Grid Cards: components/grid-cards.md
       - Tables: components/tables.md
       - Lists: components/lists.md
       - Avatars: components/avatars.md
@@ -133,3 +134,16 @@ nav:
     - Accessibility: resources/accessibility.md
     - Browser Support: resources/browser-support.md
     - Changelog: resources/changelog.md
+
+  - HTML Recipes:
+    - recipes/index.md
+    - Homepage: recipes/homepage.md
+    - Cards: recipes/cards.md
+    - Content Pages: recipes/content-pages.md
+
+  - Markdown Recipes:
+    - md-recipes/index.md
+    - Grid Cards: md-recipes/grid-cards.md
+    - Admonitions: md-recipes/admonitions.md
+    - Tabs: md-recipes/tabs.md
+    - Tables: md-recipes/tables.md
