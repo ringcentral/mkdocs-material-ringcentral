@@ -1,0 +1,135 @@
+site_name: RingCentral Design System
+site_description: The official UI style guide and component library for RingCentral products
+site_url: https://design.ringcentral.com
+docs_dir: docs
+
+theme:
+  name: material
+  font:
+    text: Inter Tight
+    code: Roboto Mono
+  features:
+    - navigation.path
+    - navigation.sections
+    - navigation.expand
+    - navigation.tabs
+    - navigation.tabs.sticky
+    - navigation.top
+    - search.sharing
+    - search.highlight
+    - content.tabs.link
+    - content.code.copy
+  palette:
+    - scheme: default
+      primary: custom
+      accent: indigo
+    - scheme: slate
+      primary: black
+      accent: indigo
+
+plugins:
+  - material-ringcentral
+  - search:
+      separator: '[\s\-\.]+'
+
+markdown_extensions:
+  - attr_list
+  - md_in_html
+  - admonition
+  - footnotes
+  - tables
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.details
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - toc:
+      permalink: true
+
+extra:
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/ringcentral
+
+copyright: "2023-2026 RingCentral, Inc. All rights reserved."
+
+nav:
+  - Home: index.md
+  - Getting Started: getting-started.md
+
+  - Foundations:
+    - foundations/index.md
+    - Colors: foundations/colors.md
+    - Typography: foundations/typography.md
+    - Spacing: foundations/spacing.md
+    - Grid & Layout: foundations/grid.md
+    - Icons: foundations/icons.md
+    - Motion: foundations/motion.md
+    - Elevation: foundations/elevation.md
+
+  - Components:
+    - components/index.md
+    - Actions:
+      - Buttons: components/buttons.md
+      - Menus: components/menus.md
+    - Inputs:
+      - Text Input: components/inputs.md
+      - Select: components/selects.md
+      - Checkbox & Radio: components/checkboxes-radio.md
+      - Toggle: components/toggles.md
+      - Forms: components/forms.md
+    - Display:
+      - Cards: components/cards.md
+      - Tables: components/tables.md
+      - Lists: components/lists.md
+      - Avatars: components/avatars.md
+      - Badges: components/badges.md
+      - Chips: components/chips.md
+      - Dividers: components/dividers.md
+    - Feedback:
+      - Alerts: components/alerts.md
+      - Banners: components/banners.md
+      - Dialogs: components/dialogs.md
+      - Tooltips: components/tooltips.md
+      - Progress: components/progress.md
+      - Loaders: components/loaders.md
+    - Navigation:
+      - Navigation: components/navigation.md
+      - Breadcrumbs: components/breadcrumbs.md
+      - Tabs: components/tabs.md
+      - Pagination: components/pagination.md
+      - Accordion: components/accordion.md
+    - Overlay:
+      - Drawers: components/drawers.md
+
+  - Patterns:
+    - patterns/index.md
+    - Empty States: patterns/empty-states.md
+    - Error States: patterns/error-states.md
+    - Loading States: patterns/loading-states.md
+    - Search: patterns/search.md
+    - Data Tables: patterns/data-tables.md
+    - Form Patterns: patterns/forms-patterns.md
+    - Notifications: patterns/notifications.md
+
+  - Content:
+    - content/index.md
+    - Voice & Tone: content/voice-tone.md
+    - Writing Guidelines: content/writing-guidelines.md
+    - Terminology: content/terminology.md
+
+  - Resources:
+    - resources/index.md
+    - Accessibility: resources/accessibility.md
+    - Browser Support: resources/browser-support.md
+    - Changelog: resources/changelog.md
