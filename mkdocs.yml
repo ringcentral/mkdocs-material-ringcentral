@@ -135,15 +135,14 @@ nav:
     - Browser Support: resources/browser-support.md
     - Changelog: resources/changelog.md
 
-  - HTML Recipes:
+  - Recipes:
     - recipes/index.md
-    - Homepage: recipes/homepage.md
-    - Cards: recipes/cards.md
-    - Content Pages: recipes/content-pages.md
-
-  - Markdown Recipes:
-    - md-recipes/index.md
-    - Grid Cards: md-recipes/grid-cards.md
-    - Admonitions: md-recipes/admonitions.md
-    - Tabs: md-recipes/tabs.md
-    - Tables: md-recipes/tables.md
+    - HTML:
+      - Homepage: recipes/homepage.md
+      - Cards: recipes/cards.md
+      - Content Pages: recipes/content-pages.md
+    - Markdown:
+      - Grid Cards: md-recipes/grid-cards.md
+      - Admonitions: md-recipes/admonitions.md
+      - Tabs: md-recipes/tabs.md
+      - Tables: md-recipes/tables.md

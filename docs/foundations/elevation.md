@@ -6,6 +6,45 @@ Elevation describes the perceived height of a surface above the page background.
 
 ## Shadow scale
 
+<div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 1.5rem; margin: 1.5rem 0 2.5rem;">
+
+  <div style="background: var(--md-default-bg-color); border-radius: 10px; padding: 1.25rem 1.5rem; box-shadow: none; border: 1px solid var(--md-default-fg-color--lightest);">
+    <p style="font-size: 0.6875rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--md-default-fg-color--light); margin: 0 0 0.4rem;">shadow-none · 0</p>
+    <p style="font-size: 0.8rem; color: var(--md-default-fg-color--light); margin: 0; line-height: 1.5;">Flat surfaces — cards at rest</p>
+  </div>
+
+  <div style="background: var(--md-default-bg-color); border-radius: 10px; padding: 1.25rem 1.5rem; box-shadow: 0 1px 2px rgba(27,42,74,0.08);">
+    <p style="font-size: 0.6875rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--md-default-fg-color--light); margin: 0 0 0.4rem;">shadow-xs · 1</p>
+    <p style="font-size: 0.8rem; color: var(--md-default-fg-color--light); margin: 0; line-height: 1.5;">Inputs, chips, badges</p>
+  </div>
+
+  <div style="background: var(--md-default-bg-color); border-radius: 10px; padding: 1.25rem 1.5rem; box-shadow: 0 2px 8px rgba(27,42,74,0.10);">
+    <p style="font-size: 0.6875rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--md-default-fg-color--light); margin: 0 0 0.4rem;">shadow-sm · 2</p>
+    <p style="font-size: 0.8rem; color: var(--md-default-fg-color--light); margin: 0; line-height: 1.5;">Cards, panels at rest</p>
+  </div>
+
+  <div style="background: var(--md-default-bg-color); border-radius: 10px; padding: 1.25rem 1.5rem; box-shadow: 0 4px 16px rgba(27,42,74,0.12);">
+    <p style="font-size: 0.6875rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--md-default-fg-color--light); margin: 0 0 0.4rem;">shadow-md · 3</p>
+    <p style="font-size: 0.8rem; color: var(--md-default-fg-color--light); margin: 0; line-height: 1.5;">Cards on hover, focused inputs</p>
+  </div>
+
+  <div style="background: var(--md-default-bg-color); border-radius: 10px; padding: 1.25rem 1.5rem; box-shadow: 0 8px 24px rgba(27,42,74,0.14);">
+    <p style="font-size: 0.6875rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--md-default-fg-color--light); margin: 0 0 0.4rem;">shadow-lg · 4</p>
+    <p style="font-size: 0.8rem; color: var(--md-default-fg-color--light); margin: 0; line-height: 1.5;">Dropdowns, floating menus</p>
+  </div>
+
+  <div style="background: var(--md-default-bg-color); border-radius: 10px; padding: 1.25rem 1.5rem; box-shadow: 0 16px 40px rgba(27,42,74,0.18);">
+    <p style="font-size: 0.6875rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--md-default-fg-color--light); margin: 0 0 0.4rem;">shadow-xl · 5</p>
+    <p style="font-size: 0.8rem; color: var(--md-default-fg-color--light); margin: 0; line-height: 1.5;">Dialogs, modals</p>
+  </div>
+
+  <div style="background: var(--md-default-bg-color); border-radius: 10px; padding: 1.25rem 1.5rem; box-shadow: 0 24px 64px rgba(27,42,74,0.22);">
+    <p style="font-size: 0.6875rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--md-default-fg-color--light); margin: 0 0 0.4rem;">shadow-2xl · 6</p>
+    <p style="font-size: 0.8rem; color: var(--md-default-fg-color--light); margin: 0; line-height: 1.5;">Drawers, fullscreen overlays</p>
+  </div>
+
+</div>
+
 | Level | Token | Box-shadow value | Usage |
 |-------|-------|-----------------|-------|
 | 0 | `shadow-none` | `none` | Flat surfaces — cards in their default state |
@@ -16,7 +55,35 @@ Elevation describes the perceived height of a surface above the page background.
 | 5 | `shadow-xl` | `0 16px 40px rgba(27,42,74,0.18)` | Dialogs, modals |
 | 6 | `shadow-2xl` | `0 24px 64px rgba(27,42,74,0.22)` | Drawers, fullscreen overlays |
 
-The shadow color is derived from `--ac-navy` (`#002755`) at varying opacities to maintain a cool, professional shadow tone.
+The shadow color is derived from `--ac-navy` (`#1B2A4A`) at varying opacities to maintain a cool, professional shadow tone.
+
+---
+
+## Focus rings
+
+Focus rings communicate keyboard position. The RingCentral focus ring uses a solid `2px` orange outline with `2px` offset so it clears the element's own border without blending into it.
+
+<div style="display: flex; flex-wrap: wrap; gap: 1rem; align-items: center; margin: 1.5rem 0 2rem;">
+
+  <button style="padding: 0.5rem 1.25rem; border-radius: 6px; border: none; background: #FF8800; color: white; font-family: 'Inter Tight', sans-serif; font-size: 0.875rem; font-weight: 600; outline: 2px solid #FF8800; outline-offset: 2px; cursor: default;">Primary button</button>
+
+  <button style="padding: 0.5rem 1.25rem; border-radius: 6px; border: 1.5px solid #CBD5E0; background: transparent; color: var(--md-default-fg-color); font-family: 'Inter Tight', sans-serif; font-size: 0.875rem; font-weight: 600; outline: 2px solid #FF8800; outline-offset: 2px; cursor: default;">Secondary button</button>
+
+  <input type="text" value="Text input" readonly style="padding: 0.4rem 0.75rem; border-radius: 6px; border: 1.5px solid #CBD5E0; background: var(--md-default-bg-color); color: var(--md-default-fg-color); font-family: 'Inter Tight', sans-serif; font-size: 0.875rem; outline: 2px solid #FF8800; outline-offset: 2px; cursor: default;" />
+
+  <a href="#" onclick="return false;" style="padding: 0.4rem 0.5rem; border-radius: 4px; color: #FF8800; font-family: 'Inter Tight', sans-serif; font-size: 0.875rem; outline: 2px solid #FF8800; outline-offset: 2px; text-decoration: none;">Text link</a>
+
+</div>
+
+```css
+:focus-visible {
+  outline: 2px solid var(--ac-orange-raw); /* #FF8800 */
+  outline-offset: 2px;
+  z-index: var(--z-tooltip); /* Never clipped by other layers */
+}
+```
+
+Never remove `:focus-visible` outlines — they are critical for keyboard accessibility.
 
 ---
 
@@ -49,22 +116,6 @@ Z-index values should never be arbitrary. Use the scale below:
   --z-tooltip:  600;
 }
 ```
-
----
-
-## Elevation and focus
-
-Focus rings are a special use of elevation — they need to appear on top of everything else. The focus ring in RingCentral products uses:
-
-```css
-:focus-visible {
-  outline: 2px solid var(--ac-orange-raw);
-  outline-offset: 2px;
-  z-index: var(--z-tooltip); /* Ensure it's never clipped */
-}
-```
-
-Never remove `:focus-visible` outlines — they are critical for keyboard accessibility.
 
 ---
 

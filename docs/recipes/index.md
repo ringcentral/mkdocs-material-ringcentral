@@ -1,12 +1,12 @@
-# HTML Recipes
+# Recipes
 
-Copy-paste HTML templates that work directly with the `material-ringcentral` theme. Every class in these recipes is defined in `ringcentral.css` — no extra stylesheets needed.
+Copy-paste patterns for building pages with the `material-ringcentral` theme. HTML recipes use raw markup and the theme's CSS classes. Markdown recipes use only standard MkDocs Material syntax — no HTML required.
 
 ---
 
-## How to use these recipes
+## HTML recipes
 
-All recipes are raw HTML blocks that go inside a Markdown file. MkDocs Material renders HTML alongside Markdown, so you can mix them freely.
+Raw HTML blocks that go inside any `.md` file. Every class is defined in `ringcentral.css` — no extra stylesheets needed.
 
 **Required front matter for homepage-style pages** (removes sidebar, TOC, and padding):
 
@@ -18,26 +18,13 @@ hide:
 ---
 ```
 
-**The `.ac-home` wrapper** is required for any page that uses full-bleed sections. It signals to the CSS that the page should have its padding and background stripped so sections can extend edge-to-edge.
+**The `.ac-home` wrapper** is required for any page that uses full-bleed sections:
 
 ```html
 <div class="ac-home">
-  <!-- All full-bleed sections go here -->
+  <!-- full-bleed sections go here -->
 </div>
 ```
-
-**Full-bleed technique:** Sections inside `.ac-home` break out of MkDocs Material's content container using:
-
-```css
-width: 100vw;
-margin-left: calc(50% - 50vw);
-```
-
-This pulls each section's left edge to the viewport edge and spans the full browser width, regardless of the content column width.
-
----
-
-## Available recipes
 
 <div class="grid cards" markdown>
 
@@ -51,12 +38,46 @@ This pulls each section's left edge to the viewport edge and spans the full brow
 
     ---
 
-    All card patterns: feature cards (`ac-v5-fc`), general purpose cards (`rc-card`), CRM partner cards, and stat cards.
+    All card patterns: feature cards (`ac-v5-fc`), general purpose cards (`rc-card`), CRM partner cards, and AI section cards.
 
 -   :material-file-document-outline: **[Content Pages](content-pages.md)**
 
     ---
 
-    Standard content page layouts: section intros, step-by-step guides, API reference tables, and two-column layouts.
+    Standard content page layouts: section intros, step-by-step guides, API reference tables, and two-column do/don't blocks.
+
+</div>
+
+---
+
+## Markdown recipes
+
+Pure Markdown patterns — no HTML required. All syntax relies only on the extensions declared in `mkdocs.yml`.
+
+<div class="grid cards" markdown>
+
+-   :material-card-multiple-outline: **[Grid cards](../md-recipes/grid-cards.md)**
+
+    ---
+
+    Navigation grids with the three RingCentral brand variants — `rc-bar`, `rc-navy`, and `rc-gradient`. Rendered examples included.
+
+-   :material-alert-box-outline: **[Admonitions](../md-recipes/admonitions.md)**
+
+    ---
+
+    All supported call-out types rendered with their colour and icon: note, tip, warning, danger, success, and more.
+
+-   :material-tab: **[Tabs](../md-recipes/tabs.md)**
+
+    ---
+
+    Tabbed content for code variants, platform-specific steps, and side-by-side comparisons.
+
+-   :material-table: **[Tables](../md-recipes/tables.md)**
+
+    ---
+
+    Reference tables, comparison matrices, and API parameter tables with alignment and width control.
 
 </div>

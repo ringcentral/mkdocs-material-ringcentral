@@ -15,6 +15,8 @@ The design system uses two icon sources:
 | Font Awesome (Regular/Solid) | `:fontawesome-regular-`, `:fontawesome-solid-` | Supplementary glyphs |
 | Octicons | `:octicons-` | GitHub-flavored interface icons |
 
+Browse and search the full icon set at the **[MkDocs Material icon and emoji reference](https://squidfunk.github.io/mkdocs-material/reference/icons-emojis/)**. The page includes a live search across all bundled sets so you can find the right icon name before writing any Markdown.
+
 ---
 
 ## Sizing

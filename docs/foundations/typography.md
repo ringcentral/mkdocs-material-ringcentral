@@ -21,6 +21,70 @@ Both fonts load from Google Fonts. The CSS import is handled automatically by th
 
 ## Type scale
 
+<div style="margin: 1.5rem 0 2.5rem; border-left: 3px solid #FF8800; padding-left: 1.5rem; display: flex; flex-direction: column; gap: 1.25rem;">
+
+  <div>
+    <div style="font-family: 'Inter Tight', sans-serif; font-size: 3rem; font-weight: 800; line-height: 1.15; color: var(--md-default-fg-color);">Display</div>
+    <div style="font-family: 'Inter Tight', sans-serif; font-size: 0.75rem; font-weight: 600; color: var(--md-default-fg-color--light); margin-top: 0.2rem;">48px · weight 800 · line-height 1.15 · Hero headings</div>
+  </div>
+
+  <div>
+    <div style="font-family: 'Inter Tight', sans-serif; font-size: 2.25rem; font-weight: 700; line-height: 1.2; color: var(--md-default-fg-color);">Heading 1</div>
+    <div style="font-family: 'Inter Tight', sans-serif; font-size: 0.75rem; font-weight: 600; color: var(--md-default-fg-color--light); margin-top: 0.2rem;">36px · weight 700 · line-height 1.2 · Page titles</div>
+  </div>
+
+  <div>
+    <div style="font-family: 'Inter Tight', sans-serif; font-size: 1.75rem; font-weight: 700; line-height: 1.25; color: var(--md-default-fg-color);">Heading 2</div>
+    <div style="font-family: 'Inter Tight', sans-serif; font-size: 0.75rem; font-weight: 600; color: var(--md-default-fg-color--light); margin-top: 0.2rem;">28px · weight 700 · line-height 1.25 · Major sections</div>
+  </div>
+
+  <div>
+    <div style="font-family: 'Inter Tight', sans-serif; font-size: 1.375rem; font-weight: 600; line-height: 1.3; color: var(--md-default-fg-color);">Heading 3</div>
+    <div style="font-family: 'Inter Tight', sans-serif; font-size: 0.75rem; font-weight: 600; color: var(--md-default-fg-color--light); margin-top: 0.2rem;">22px · weight 600 · line-height 1.3 · Sub-sections</div>
+  </div>
+
+  <div>
+    <div style="font-family: 'Inter Tight', sans-serif; font-size: 1.125rem; font-weight: 600; line-height: 1.35; color: var(--md-default-fg-color);">Heading 4</div>
+    <div style="font-family: 'Inter Tight', sans-serif; font-size: 0.75rem; font-weight: 600; color: var(--md-default-fg-color--light); margin-top: 0.2rem;">18px · weight 600 · line-height 1.35 · Component groups</div>
+  </div>
+
+  <div>
+    <div style="font-family: 'Inter Tight', sans-serif; font-size: 1rem; font-weight: 600; line-height: 1.4; color: var(--md-default-fg-color);">Heading 5</div>
+    <div style="font-family: 'Inter Tight', sans-serif; font-size: 0.75rem; font-weight: 600; color: var(--md-default-fg-color--light); margin-top: 0.2rem;">16px · weight 600 · line-height 1.4 · Minor headings, labels</div>
+  </div>
+
+  <div>
+    <div style="font-family: 'Inter Tight', sans-serif; font-size: 0.875rem; font-weight: 600; line-height: 1.4; color: var(--md-default-fg-color);">Heading 6</div>
+    <div style="font-family: 'Inter Tight', sans-serif; font-size: 0.75rem; font-weight: 600; color: var(--md-default-fg-color--light); margin-top: 0.2rem;">14px · weight 600 · line-height 1.4 · Captions, small labels</div>
+  </div>
+
+  <div style="border-top: 1px solid var(--md-default-fg-color--lightest); padding-top: 1.25rem;">
+    <div style="font-family: 'Inter Tight', sans-serif; font-size: 1rem; font-weight: 400; line-height: 1.6; color: var(--md-default-fg-color);">Body large — The quick brown fox jumps over the lazy dog. This is what primary body copy looks like at 16px with a comfortable 1.6 line-height for long-form reading.</div>
+    <div style="font-family: 'Inter Tight', sans-serif; font-size: 0.75rem; font-weight: 600; color: var(--md-default-fg-color--light); margin-top: 0.2rem;">16px · weight 400 · line-height 1.6</div>
+  </div>
+
+  <div>
+    <div style="font-family: 'Inter Tight', sans-serif; font-size: 0.875rem; font-weight: 400; line-height: 1.6; color: var(--md-default-fg-color);">Body — Interface copy and secondary descriptions sit at 14px. This weight and size is used for most text inside components and documentation pages.</div>
+    <div style="font-family: 'Inter Tight', sans-serif; font-size: 0.75rem; font-weight: 600; color: var(--md-default-fg-color--light); margin-top: 0.2rem;">14px · weight 400 · line-height 1.6</div>
+  </div>
+
+  <div>
+    <div style="font-family: 'Inter Tight', sans-serif; font-size: 0.75rem; font-weight: 400; line-height: 1.5; color: var(--md-default-fg-color);">Body small — Helper text, captions, and metadata. Use sparingly and never for primary content.</div>
+    <div style="font-family: 'Inter Tight', sans-serif; font-size: 0.75rem; font-weight: 600; color: var(--md-default-fg-color--light); margin-top: 0.2rem;">12px · weight 400 · line-height 1.5</div>
+  </div>
+
+  <div>
+    <span style="font-family: 'Inter Tight', sans-serif; font-size: 0.75rem; font-weight: 600; line-height: 1.4; background: #FFF0DC; color: #CC6E00; border-radius: 4px; padding: 0.2rem 0.5rem; display: inline-block;">Label</span>
+    <div style="font-family: 'Inter Tight', sans-serif; font-size: 0.75rem; font-weight: 600; color: var(--md-default-fg-color--light); margin-top: 0.4rem;">12px · weight 600 · line-height 1.4 · Form labels, badges, tags</div>
+  </div>
+
+  <div>
+    <code style="font-family: 'Roboto Mono', monospace; font-size: 0.8125rem; font-weight: 400; line-height: 1.6;">const greeting = "Hello from RingCentral";</code>
+    <div style="font-family: 'Inter Tight', sans-serif; font-size: 0.75rem; font-weight: 600; color: var(--md-default-fg-color--light); margin-top: 0.4rem;">Roboto Mono · 13px · weight 400 · line-height 1.6 · Inline code and code blocks</div>
+  </div>
+
+</div>
+
 | Role | Size | Weight | Line height | Usage |
 |------|------|--------|-------------|-------|
 | **Display** | 48px / 3rem | 800 | 1.15 | Hero headings, splash screens |
@@ -30,9 +94,9 @@ Both fonts load from Google Fonts. The CSS import is handled automatically by th
 | **H4** | 18px / 1.125rem | 600 | 1.35 | Component group headings |
 | **H5** | 16px / 1rem | 600 | 1.4 | Minor headings, labels |
 | **H6** | 14px / 0.875rem | 600 | 1.4 | Captions, small section labels |
-| **Body Large** | 16px / 1rem | 400 | 1.6 | Primary body copy |
+| **Body large** | 16px / 1rem | 400 | 1.6 | Primary body copy |
 | **Body** | 14px / 0.875rem | 400 | 1.6 | Secondary body, interface copy |
-| **Body Small** | 12px / 0.75rem | 400 | 1.5 | Helper text, captions, metadata |
+| **Body small** | 12px / 0.75rem | 400 | 1.5 | Helper text, captions, metadata |
 | **Label** | 12px / 0.75rem | 600 | 1.4 | Form labels, tags, badge text |
 | **Code** | 13px / 0.8125rem | 400 | 1.6 | Inline code, code blocks |
 
@@ -70,14 +134,13 @@ Use semantic heading levels (`h1`–`h6`) in document order. Never skip levels f
 
 Optimal reading line length is **60–80 characters** (roughly 30–40em). The content column in MkDocs Material is constrained to this range by default.
 
-- **Never** remove the content column constraint to make text span full width.
-- For wide data (tables, code), horizontal scroll within a contained element is preferred over breaking the content width.
+Never remove the content column constraint to make text span full width. For wide data (tables, code), horizontal scroll within a contained element is preferred over breaking the content width.
 
 ---
 
 ## Code typography
 
-Code uses **Roboto Mono** at 13px / 0.8125rem. Code blocks get a light grey background (`#F6F8FA`) and subtle border.
+Code uses **Roboto Mono** at 13px / 0.8125rem. Code blocks get a light grey background and subtle border.
 
 Inline code: `this is inline code`
 
