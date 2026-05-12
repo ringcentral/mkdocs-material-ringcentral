@@ -880,6 +880,8 @@ body:not(:has(.ac-home)) .md-typeset h2 {
 .md-content__inner::before { height: 0 !important; }
 /* Strip Material's 1.5rem top margin from .md-main__inner */
 .md-main__inner { margin-top: 0 !important; }
+/* Strip Material's bottom padding from .md-main */
+.md-main { padding-bottom: 0 !important; }
 
 /* --------------------------------------------------------------------------
    Footer — dark navy Labs footer
