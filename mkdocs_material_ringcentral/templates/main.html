@@ -10,15 +10,15 @@
 {# ------------------------------------------------------------------ #}
 {# Announce banner — project-aware                                     #}
 {# ------------------------------------------------------------------ #}
-{% block announce %}
-  {% if _active == "app-connect" %}
+{% block announce -%}
+  {%- if _active == "app-connect" -%}
     App Connect 2.0 BETA is here with more features and support for more CRMs!
     <a href="{{ config.site_url }}2.0/" class="upgrade-button">Try it out</a>
-  {% elif _active == "design-system" %}
+  {%- elif _active == "design-system" -%}
     The RingCentral Design System is now in public beta — share feedback on
     <a href="https://github.com/ringcentral/mkdocs-material-ringcentral/discussions" target="_blank" rel="noopener" class="upgrade-button">GitHub Discussions</a>
-  {% endif %}
-{% endblock %}
+  {%- endif -%}
+{%- endblock %}
 
 {# ------------------------------------------------------------------ #}
 {# Footer                                                              #}
@@ -43,11 +43,11 @@
     "badge": ""
   },
   {
-    "key":   "ringcentral-mcp",
-    "name":  "RingCentral MCP",
-    "desc":  "AI tool integration for RingEX",
-    "href":  "https://github.com/ringcentral/ringcentral-mcp",
-    "badge": "New"
+    "key":   "rc-embeddable",
+    "name":  "RC Embeddable",
+    "desc":  "Embeddable RingCentral phone widget",
+    "href":  "https://ringcentral.github.io/ringcentral-embeddable/",
+    "badge": ""
   }
 ] %}
 

@@ -2,7 +2,7 @@ from setuptools import setup, find_packages
 
 setup(
     name="mkdocs-material-ringcentral",
-    version="1.0.0",
+    version="1.0.2",
     description="RingCentral 2026 brand layer plugin for MkDocs Material",
     packages=find_packages(),
     package_data={

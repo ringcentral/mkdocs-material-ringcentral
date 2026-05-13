@@ -124,8 +124,9 @@ If you don't need the call widget, omit the right column. The copy will expand t
 <hr>
 <p style="font-size:0.72rem; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; color:#aaa; margin:1.5rem 0 0.5rem;">Preview</p>
 
-<div class="ac-v5-hero" style="width:100%; margin-left:0; border-radius:12px; overflow:hidden;">
-  <div class="ac-v5-hero__copy" style="padding: 2rem;">
+<div class="rc-recipe-preview">
+<div class="ac-v5-hero">
+  <div class="ac-v5-hero__copy">
     <p class="ac-v5-hero__eyebrow">RingCentral Design System</p>
     <h1 class="ac-v5-hero__title">
       One design language.<br>Every product.
@@ -135,14 +136,11 @@ If you don't need the call widget, omit the right column. The copy will expand t
       accessible RingCentral product experiences.
     </p>
     <div class="ac-v5-hero__cta">
-      <a href="#" class="ac-v5-btn ac-v5-btn--navy">
-        Explore foundations
-      </a>
-      <a href="#" class="ac-v5-btn ac-v5-btn--glass">
-        Get started
-      </a>
+      <a href="#" class="ac-v5-btn ac-v5-btn--navy">Explore foundations</a>
+      <a href="#" class="ac-v5-btn ac-v5-btn--glass">Get started</a>
     </div>
   </div>
+</div>
 </div>
 
 ### Button variants
@@ -203,27 +201,21 @@ Three equal columns on a warm pastel gradient. Used to state the three core valu
 <hr>
 <p style="font-size:0.72rem; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; color:#aaa; margin:1.5rem 0 0.5rem;">Preview</p>
 
-<div class="ac-v5-pillars" style="width:100%; margin-left:0; border-radius:12px; overflow:hidden;">
-  <div class="ac-v5-pillar" style="padding: 2rem;">
+<div class="rc-recipe-preview">
+<div class="ac-v5-pillars">
+  <div class="ac-v5-pillar">
     <p class="ac-v5-pillar__num">01 — First value</p>
-    <p class="ac-v5-pillar__text">
-      One or two sentences describing the first pillar. Keep it
-      scannable — this is a teaser, not a full description.
-    </p>
+    <p class="ac-v5-pillar__text">One or two sentences describing the first pillar. Keep it scannable — this is a teaser, not a full description.</p>
   </div>
-  <div class="ac-v5-pillar ac-v5-pillar--mid" style="padding: 2rem;">
+  <div class="ac-v5-pillar ac-v5-pillar--mid">
     <p class="ac-v5-pillar__num">02 — Second value</p>
-    <p class="ac-v5-pillar__text">
-      One or two sentences for the second pillar. The
-      <code>--mid</code> modifier adds the left and right borders.
-    </p>
+    <p class="ac-v5-pillar__text">One or two sentences for the second pillar. The <code>--mid</code> modifier adds the left and right borders.</p>
   </div>
-  <div class="ac-v5-pillar" style="padding: 2rem;">
+  <div class="ac-v5-pillar">
     <p class="ac-v5-pillar__num">03 — Third value</p>
-    <p class="ac-v5-pillar__text">
-      One or two sentences for the third pillar.
-    </p>
+    <p class="ac-v5-pillar__text">One or two sentences for the third pillar.</p>
   </div>
+</div>
 </div>
 
 !!! note "Middle pillar modifier"
@@ -284,24 +276,26 @@ An infinitely scrolling row of partner or integration logos. The track must cont
 <hr>
 <p style="font-size:0.72rem; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; color:#aaa; margin:1.5rem 0 0.5rem;">Preview</p>
 
-<div class="ac-v5-ticker-wrap" style="width:100%; margin-left:0; border-radius:12px; overflow:hidden;">
+<div class="rc-recipe-preview">
+<div class="ac-v5-ticker-wrap">
   <p class="ac-v5-ticker-label">15+ supported integrations and growing</p>
   <div class="ac-v5-ticker-overflow">
     <div class="ac-v5-ticker-track">
-      <div class="ac-v5-ticker-pill" style="padding:0.4rem 1rem;">Salesforce</div>
-      <div class="ac-v5-ticker-pill" style="padding:0.4rem 1rem;">HubSpot</div>
-      <div class="ac-v5-ticker-pill" style="padding:0.4rem 1rem;">Clio</div>
-      <div class="ac-v5-ticker-pill" style="padding:0.4rem 1rem;">Zendesk</div>
-      <div class="ac-v5-ticker-pill" style="padding:0.4rem 1rem;">ServiceNow</div>
-      <div class="ac-v5-ticker-pill" style="padding:0.4rem 1rem;">Microsoft Teams</div>
-      <div class="ac-v5-ticker-pill" aria-hidden="true" style="padding:0.4rem 1rem;">Salesforce</div>
-      <div class="ac-v5-ticker-pill" aria-hidden="true" style="padding:0.4rem 1rem;">HubSpot</div>
-      <div class="ac-v5-ticker-pill" aria-hidden="true" style="padding:0.4rem 1rem;">Clio</div>
-      <div class="ac-v5-ticker-pill" aria-hidden="true" style="padding:0.4rem 1rem;">Zendesk</div>
-      <div class="ac-v5-ticker-pill" aria-hidden="true" style="padding:0.4rem 1rem;">ServiceNow</div>
-      <div class="ac-v5-ticker-pill" aria-hidden="true" style="padding:0.4rem 1rem;">Microsoft Teams</div>
+      <div class="ac-v5-ticker-pill">Salesforce</div>
+      <div class="ac-v5-ticker-pill">HubSpot</div>
+      <div class="ac-v5-ticker-pill">Clio</div>
+      <div class="ac-v5-ticker-pill">Zendesk</div>
+      <div class="ac-v5-ticker-pill">ServiceNow</div>
+      <div class="ac-v5-ticker-pill">Microsoft Teams</div>
+      <div class="ac-v5-ticker-pill" aria-hidden="true">Salesforce</div>
+      <div class="ac-v5-ticker-pill" aria-hidden="true">HubSpot</div>
+      <div class="ac-v5-ticker-pill" aria-hidden="true">Clio</div>
+      <div class="ac-v5-ticker-pill" aria-hidden="true">Zendesk</div>
+      <div class="ac-v5-ticker-pill" aria-hidden="true">ServiceNow</div>
+      <div class="ac-v5-ticker-pill" aria-hidden="true">Microsoft Teams</div>
     </div>
   </div>
+</div>
 </div>
 
 **How the loop works:** The CSS animation translates the track by `-50%` over 36 seconds. Since the track contains two identical sets, when the first set scrolls off the left edge the second set has taken its exact position — creating a seamless infinite scroll. `aria-hidden="true"` and `tabindex="-1"` on the duplicate set prevent screen readers and keyboard users from encountering duplicate links.
@@ -375,45 +369,36 @@ White cards with an orange top border, arranged in an auto-fill grid. Use for li
 <hr>
 <p style="font-size:0.72rem; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; color:#aaa; margin:1.5rem 0 0.5rem;">Preview</p>
 
-<div class="ac-v5-features" style="width:100%; margin-left:0; border-radius:12px; overflow:hidden;">
-  <p class="ac-v5-features__title" style="padding: 2rem 2rem 0;">
-    A complete communications stack, built into your CRM.
-  </p>
-  <div class="ac-v5-features__grid" style="padding: 1rem 2rem 2rem;">
+<div class="rc-recipe-preview">
+<div class="ac-v5-features">
+  <p class="ac-v5-features__title">A complete communications stack, built into your CRM.</p>
+  <div class="ac-v5-features__grid">
     <div class="ac-v5-fc">
       <p class="ac-v5-fc__title">Feature name</p>
       <hr class="ac-v5-fc__sep">
-      <p class="ac-v5-fc__desc">
-        One or two sentences describing what this feature does
-        and why it matters. Keep it under 25 words.
-      </p>
+      <p class="ac-v5-fc__desc">One or two sentences describing what this feature does and why it matters.</p>
       <a href="#" class="ac-v5-fc__link">Learn more →</a>
     </div>
     <div class="ac-v5-fc">
       <p class="ac-v5-fc__title">Second feature</p>
       <hr class="ac-v5-fc__sep">
-      <p class="ac-v5-fc__desc">
-        Brief description of the second feature.
-      </p>
+      <p class="ac-v5-fc__desc">Brief description of the second feature.</p>
       <a href="#" class="ac-v5-fc__link">Learn more →</a>
     </div>
     <div class="ac-v5-fc">
       <p class="ac-v5-fc__title">Third feature</p>
       <hr class="ac-v5-fc__sep">
-      <p class="ac-v5-fc__desc">
-        Brief description of the third feature.
-      </p>
+      <p class="ac-v5-fc__desc">Brief description of the third feature.</p>
       <a href="#" class="ac-v5-fc__link">Learn more →</a>
     </div>
     <div class="ac-v5-fc">
       <p class="ac-v5-fc__title">Fourth feature</p>
       <hr class="ac-v5-fc__sep">
-      <p class="ac-v5-fc__desc">
-        Brief description of the fourth feature.
-      </p>
+      <p class="ac-v5-fc__desc">Brief description of the fourth feature.</p>
       <a href="#" class="ac-v5-fc__link">Learn more →</a>
     </div>
   </div>
+</div>
 </div>
 
 ---
@@ -476,7 +461,8 @@ A dark `#1B2A4A` section with an eyebrow label, large title, description, and a 
 <hr>
 <p style="font-size:0.72rem; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; color:#aaa; margin:1.5rem 0 0.5rem;">Preview</p>
 
-<div class="ac-v5-ai-section" style="width:100%; margin-left:0; border-radius:12px; overflow:hidden; padding: 2rem;">
+<div class="rc-recipe-preview">
+<div class="ac-v5-ai-section">
   <p class="ac-v5-ai-section__eyebrow">AI in the enterprise</p>
   <p class="ac-v5-ai-section__title">
     The data layer your AI initiatives are waiting for.
@@ -513,6 +499,7 @@ A dark `#1B2A4A` section with an eyebrow label, large title, description, and a 
   <a href="#" class="ac-v5-ai-section__cta">
     Learn about AI capabilities →
   </a>
+</div>
 </div>
 
 ---
@@ -567,38 +554,26 @@ A three-column gradient section. The left column is a brand statement; the right
 <hr>
 <p style="font-size:0.72rem; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; color:#aaa; margin:1.5rem 0 0.5rem;">Preview</p>
 
-<div class="ac-v5-devtile" style="width:100%; margin-left:0; border-radius:12px; overflow:hidden;">
-  <div class="ac-v5-devtile__brand" style="padding: 2rem;">
+<div class="rc-recipe-preview">
+<div class="ac-v5-devtile">
+  <div class="ac-v5-devtile__brand">
     <p class="ac-v5-devtile__eyebrow">Open source · Developer framework</p>
-    <p class="ac-v5-devtile__title">
-      Connect to any platform in a fraction of the time.
-    </p>
-    <a href="#" class="ac-v5-devtile__more">
-      Read the developer guide →
-    </a>
+    <p class="ac-v5-devtile__title">Connect to any platform in a fraction of the time.</p>
+    <a href="#" class="ac-v5-devtile__more">Read the developer guide →</a>
   </div>
-  <div class="ac-v5-devpath" style="padding: 2rem;">
+  <div class="ac-v5-devpath">
     <p class="ac-v5-devpath__num">Path 01</p>
     <p class="ac-v5-devpath__name">Connectors</p>
-    <p class="ac-v5-devpath__desc">
-      Map call data into your platform's contacts and activity records.
-      Build once, log everything automatically.
-    </p>
-    <a href="#" class="ac-v5-devpath__cta">
-      Build a connector →
-    </a>
+    <p class="ac-v5-devpath__desc">Map call data into your platform's contacts and activity records. Build once, log everything automatically.</p>
+    <a href="#" class="ac-v5-devpath__cta">Build a connector →</a>
   </div>
-  <div class="ac-v5-devpath ac-v5-devpath--plugins" style="padding: 2rem;">
+  <div class="ac-v5-devpath ac-v5-devpath--plugins">
     <p class="ac-v5-devpath__num">Path 02</p>
     <p class="ac-v5-devpath__name">Plugins</p>
-    <p class="ac-v5-devpath__desc">
-      Intercept call payloads before the platform — enrich, redact,
-      route, or transform data on the way through.
-    </p>
-    <a href="#" class="ac-v5-devpath__cta">
-      Build a plugin →
-    </a>
+    <p class="ac-v5-devpath__desc">Intercept call payloads before the platform — enrich, redact, route, or transform data on the way through.</p>
+    <a href="#" class="ac-v5-devpath__cta">Build a plugin →</a>
   </div>
+</div>
 </div>
 
 **Path variants:**

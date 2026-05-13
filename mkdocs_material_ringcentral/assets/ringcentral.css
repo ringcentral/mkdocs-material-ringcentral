@@ -136,6 +136,15 @@ body:not(:has(.ac-home))::before { content: none !important; display: none !impo
     z-index: 0;
   }
 
+  /* When navigation is hidden (hide: navigation in front matter), suppress the
+     sidebar gradient and divider so the left column is clean white */
+  body:has(.md-sidebar--primary[hidden]) .md-main__inner {
+    background: #ffffff !important;
+  }
+  body:has(.md-sidebar--primary[hidden]) .md-main__inner::after {
+    display: none !important;
+  }
+
   /* Sidebar width — override Material's 12.1rem default.
      position: static removes sticky scroll so the whole page scrolls as one unit.
      Wrapped in this query so Material's drawer still works on narrow viewports. */
@@ -2573,4 +2582,138 @@ body:has(.ac-home) .md-main { overflow-x: clip; }
   .ac-hero--slash .ac-hero__copy { max-width: 80%; }
   .ac-hero--slash::after { width: 28%; clip-path: polygon(35% 0%, 100% 0%, 100% 100%, 0% 100%); }
   .ac-hero__stats { gap: 1.25rem; }
+}
+
+/* ==========================================================================
+   BUTTON DESIGN SYSTEM — Pill style
+   Single source of truth for all button contexts across the site.
+   ========================================================================== */
+
+/* ── Base: pill shape + hover lift, shared by all contexts ───────────────── */
+.md-typeset .md-button,
+.crm-mkt__callout-btn,
+.bld-cta__btn {
+  border-radius: 999px !important;
+  transition: opacity 0.15s, transform 0.15s !important;
+}
+.md-typeset .md-button:hover,
+.crm-mkt__callout-btn:hover,
+.bld-cta__btn:hover {
+  transform: translateY(-1px) !important;
+  opacity: 0.9 !important;
+}
+
+/* ── Context 1: MkDocs Material .md-button ───────────────────────────────── */
+.md-typeset .md-button {
+  border: 2px solid #FF7A00 !important;
+  color: #FF7A00 !important;
+  background: transparent !important;
+  font-weight: 700 !important;
+  font-size: 0.82rem !important;
+  padding: 0.45rem 1.4rem !important;
+  letter-spacing: 0.01em !important;
+}
+.md-typeset .md-button--primary {
+  background: #FF7A00 !important;
+  color: #fff !important;
+  border-color: #FF7A00 !important;
+}
+[data-md-color-scheme="slate"] .md-typeset .md-button:not(.md-button--primary) {
+  border-color: rgba(255,255,255,0.5) !important;
+  color: rgba(255,255,255,0.85) !important;
+}
+
+/* ── Size modifiers ──────────────────────────────────────────────────────── */
+.md-typeset .md-button--lg {
+  padding: 0.7rem 1.75rem !important;
+  font-size: 1rem !important;
+}
+.md-typeset .md-button--sm {
+  padding: 0.3rem 1rem !important;
+  font-size: 0.75rem !important;
+}
+.md-typeset .md-button--xs {
+  padding: 0.15rem 0.65rem !important;
+  font-size: 0.7rem !important;
+}
+
+/* ── Variant modifiers ───────────────────────────────────────────────────── */
+.md-typeset .md-button--ghost {
+  border-color: transparent !important;
+  color: #FF7A00 !important;
+  background: transparent !important;
+}
+.md-typeset .md-button--ghost:hover {
+  border-color: transparent !important;
+  background: rgba(255, 122, 0, 0.08) !important;
+  opacity: 1 !important;
+}
+[data-md-color-scheme="slate"] .md-typeset .md-button--ghost {
+  color: rgba(255,255,255,0.85) !important;
+  border-color: transparent !important;
+}
+.md-typeset .md-button--danger {
+  background: #D32F2F !important;
+  color: #fff !important;
+  border-color: #D32F2F !important;
+}
+.md-typeset .md-button--danger:hover {
+  background: #B71C1C !important;
+  border-color: #B71C1C !important;
+  opacity: 1 !important;
+}
+
+/* ── Context 2: CRM marketplace callout strip ────────────────────────────── */
+.crm-mkt__callout-btn--primary {
+  background: #FF7A00 !important;
+  color: #fff !important;
+  border: none !important;
+}
+.crm-mkt__callout-btn--secondary {
+  background: transparent !important;
+  color: #FF7A00 !important;
+  border: 2px solid #FF7A00 !important;
+}
+[data-md-color-scheme="slate"] .crm-mkt__callout-btn--secondary {
+  color: rgba(255,255,255,0.85) !important;
+  border-color: rgba(255,255,255,0.4) !important;
+}
+
+/* ── Context 3: Vendor page .bld-cta__btn — pill radius only (already orange solid) */
+
+/* ==========================================================================
+   RECIPE PAGE PREVIEW SCOPE
+   Wrap any full-bleed homepage section in .rc-recipe-preview to render it
+   at column width without the viewport-relative padding / margin-left tricks.
+   ========================================================================== */
+.rc-recipe-preview {
+  border-radius: 12px;
+  overflow: hidden;
+  margin: 1rem 0 1.5rem;
+}
+.rc-recipe-preview .ac-v5-hero,
+.rc-recipe-preview .ac-v5-pillars,
+.rc-recipe-preview .ac-v5-features,
+.rc-recipe-preview .ac-v5-ai-section,
+.rc-recipe-preview .ac-v5-devtile,
+.rc-recipe-preview .ac-v5-ticker-wrap {
+  width: 100% !important;
+  margin-left: 0 !important;
+  border-radius: 0 !important;
+}
+/* Override the viewport-relative horizontal padding that breaks in-column display */
+.rc-recipe-preview .ac-v5-hero {
+  padding: 2.5rem 2rem 2.25rem !important;
+}
+.rc-recipe-preview .ac-v5-pillars {
+  padding: 2rem !important;
+}
+.rc-recipe-preview .ac-v5-features {
+  padding: 1.5rem 2rem 2rem !important;
+}
+.rc-recipe-preview .ac-v5-ai-section {
+  padding: 2.5rem 2rem !important;
+}
+.rc-recipe-preview .ac-v5-ticker-wrap {
+  padding: 1.25rem 2rem 1.5rem !important;
 }

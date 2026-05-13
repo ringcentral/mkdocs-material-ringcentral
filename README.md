@@ -159,9 +159,7 @@ The footer lists RingCentral Labs projects. The active project is highlighted wi
 | Key | Project | URL |
 |-----|---------|-----|
 | `app-connect` | App Connect | appconnect.labs.ringcentral.com |
-| `rc-embeddable` | RC Embeddable | github.com/ringcentral/ringcentral-embeddable |
-| `call-me` | Call Me | github.com/ringcentral/call-me |
-| `ringcentral-mcp` | RingCentral MCP | github.com/ringcentral/ringcentral-mcp |
+| `rc-embeddable` | RC Embeddable | ringcentral.github.io/ringcentral-embeddable |
 
 ---
 

@@ -47,8 +47,8 @@ _RC_ASSETS = [
 # Map site_url hostnames → canonical project keys.
 # Checked in order; first match wins.
 _SITE_URL_MAP = [
-    ("appconnect.labs.ringcentral.com", "app-connect"),
-    ("mcp.ringcentral.com",             "ringcentral-mcp"),
+    ("appconnect.labs.ringcentral.com",                  "app-connect"),
+    ("ringcentral.github.io/ringcentral-embeddable",     "rc-embeddable"),
 ]
 
 

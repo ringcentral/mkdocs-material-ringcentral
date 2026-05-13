@@ -81,12 +81,74 @@ Icon-only buttons must have an `aria-label`. Reserve them for toolbars and areas
 
 ## Sizes
 
-| Size | Height | Padding | Font size | Usage |
-|------|--------|---------|-----------|-------|
-| Large | 48px | `12px 24px` | 16px | Hero CTAs, prominent actions |
-| **Default** | 40px | `8px 16px` | 14px | **Standard usage** |
-| Small | 32px | `6px 12px` | 12px | Dense UIs, toolbars, inline actions |
-| Compact | 24px | `4px 8px` | 12px | Table row actions, chips |
+| Size | Class modifier | Padding | Font size | Usage |
+|------|---------------|---------|-----------|-------|
+| Large | `.md-button--lg` | `11px 28px` | 1rem | Hero CTAs, prominent actions |
+| **Default** | *(none)* | `7px 22px` | 0.82rem | **Standard usage** |
+| Small | `.md-button--sm` | `5px 16px` | 0.75rem | Dense UIs, toolbars, inline actions |
+| Compact | `.md-button--xs` | `2px 10px` | 0.7rem | Table row actions, chips |
+
+<p style="font-size:0.72rem; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; color:#aaa; margin:1.5rem 0 0.5rem;">Primary — all sizes</p>
+
+<div style="display:flex; flex-wrap:wrap; align-items:center; gap:1rem; padding:1.5rem 2rem; background:linear-gradient(135deg,#fff8f3,#fff); border:1px solid #f0e8e0; border-radius:12px; margin-bottom:0.75rem;">
+  <a href="#" class="md-button md-button--primary md-button--lg">Large</a>
+  <a href="#" class="md-button md-button--primary">Default</a>
+  <a href="#" class="md-button md-button--primary md-button--sm">Small</a>
+  <a href="#" class="md-button md-button--primary md-button--xs">Compact</a>
+</div>
+
+<p style="font-size:0.72rem; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; color:#aaa; margin:1.5rem 0 0.5rem;">Secondary (outline) — all sizes</p>
+
+<div style="display:flex; flex-wrap:wrap; align-items:center; gap:1rem; padding:1.5rem 2rem; background:linear-gradient(135deg,#fff8f3,#fff); border:1px solid #f0e8e0; border-radius:12px; margin-bottom:0.75rem;">
+  <a href="#" class="md-button md-button--lg">Large</a>
+  <a href="#" class="md-button">Default</a>
+  <a href="#" class="md-button md-button--sm">Small</a>
+  <a href="#" class="md-button md-button--xs">Compact</a>
+</div>
+
+<p style="font-size:0.72rem; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; color:#aaa; margin:1.5rem 0 0.5rem;">Tertiary / Ghost — all sizes</p>
+
+<div style="display:flex; flex-wrap:wrap; align-items:center; gap:1rem; padding:1.5rem 2rem; background:linear-gradient(135deg,#fff8f3,#fff); border:1px solid #f0e8e0; border-radius:12px; margin-bottom:0.75rem;">
+  <a href="#" class="md-button md-button--ghost md-button--lg">Large</a>
+  <a href="#" class="md-button md-button--ghost">Default</a>
+  <a href="#" class="md-button md-button--ghost md-button--sm">Small</a>
+  <a href="#" class="md-button md-button--ghost md-button--xs">Compact</a>
+</div>
+
+<p style="font-size:0.72rem; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; color:#aaa; margin:1.5rem 0 0.5rem;">Destructive — all sizes</p>
+
+<div style="display:flex; flex-wrap:wrap; align-items:center; gap:1rem; padding:1.5rem 2rem; background:linear-gradient(135deg,#fff8f3,#fff); border:1px solid #f0e8e0; border-radius:12px; margin-bottom:0.75rem;">
+  <a href="#" class="md-button md-button--danger md-button--lg">Large</a>
+  <a href="#" class="md-button md-button--danger">Default</a>
+  <a href="#" class="md-button md-button--danger md-button--sm">Small</a>
+  <a href="#" class="md-button md-button--danger md-button--xs">Compact</a>
+</div>
+
+```html
+<!-- Primary -->
+<a href="/action/" class="md-button md-button--primary md-button--lg">Large</a>
+<a href="/action/" class="md-button md-button--primary">Default</a>
+<a href="/action/" class="md-button md-button--primary md-button--sm">Small</a>
+<a href="/action/" class="md-button md-button--primary md-button--xs">Compact</a>
+
+<!-- Secondary (outline) -->
+<a href="/action/" class="md-button md-button--lg">Large</a>
+<a href="/action/" class="md-button">Default</a>
+<a href="/action/" class="md-button md-button--sm">Small</a>
+<a href="/action/" class="md-button md-button--xs">Compact</a>
+
+<!-- Tertiary / Ghost -->
+<a href="/action/" class="md-button md-button--ghost md-button--lg">Large</a>
+<a href="/action/" class="md-button md-button--ghost">Default</a>
+<a href="/action/" class="md-button md-button--ghost md-button--sm">Small</a>
+<a href="/action/" class="md-button md-button--ghost md-button--xs">Compact</a>
+
+<!-- Destructive -->
+<a href="/action/" class="md-button md-button--danger md-button--lg">Large</a>
+<a href="/action/" class="md-button md-button--danger">Default</a>
+<a href="/action/" class="md-button md-button--danger md-button--sm">Small</a>
+<a href="/action/" class="md-button md-button--danger md-button--xs">Compact</a>
+```
 
 ---
 
