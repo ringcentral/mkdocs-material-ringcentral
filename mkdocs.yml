@@ -142,6 +142,8 @@ nav:
       - Homepage: recipes/homepage.md
       - Cards: recipes/cards.md
       - Content Pages: recipes/content-pages.md
+      - Hero Banners — Homepage: recipes/hero-homepage.md
+      - Hero Banners — Page: recipes/hero-page.md
     - Markdown:
       - Grid Cards: md-recipes/grid-cards.md
       - Code Blocks: md-recipes/code-blocks.md

@@ -22,6 +22,18 @@ White cards with an orange top border. Used in the homepage features section and
 </div>
 ```
 
+<p style="font-size:0.72rem; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; color:#aaa; margin:1.5rem 0 0.5rem;">Preview</p>
+
+<div class="ac-v5-fc">
+  <p class="ac-v5-fc__title">Call logging</p>
+  <hr class="ac-v5-fc__sep">
+  <p class="ac-v5-fc__desc">
+    Every call logged automatically — inbound, outbound, missed.
+    No manual entry, ever.
+  </p>
+  <a href="/users/logging/" class="ac-v5-fc__link">Learn about call logging →</a>
+</div>
+
 ### Feature card grid (4-up)
 
 The grid uses `grid-template-columns: repeat(4, minmax(0, 1fr))`. Wraps to 2-col at 960px and 1-col at 560px.
@@ -63,6 +75,40 @@ The grid uses `grid-template-columns: repeat(4, minmax(0, 1fr))`. Wraps to 2-col
 </div>
 ```
 
+<p style="font-size:0.72rem; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; color:#aaa; margin:1.5rem 0 0.5rem;">Preview</p>
+
+<div class="ac-v5-features__grid" style="margin:1rem 0;">
+
+  <div class="ac-v5-fc">
+    <p class="ac-v5-fc__title">Feature one</p>
+    <hr class="ac-v5-fc__sep">
+    <p class="ac-v5-fc__desc">Brief description, one or two sentences max.</p>
+    <a href="/feature-1/" class="ac-v5-fc__link">Learn more →</a>
+  </div>
+
+  <div class="ac-v5-fc">
+    <p class="ac-v5-fc__title">Feature two</p>
+    <hr class="ac-v5-fc__sep">
+    <p class="ac-v5-fc__desc">Brief description, one or two sentences max.</p>
+    <a href="/feature-2/" class="ac-v5-fc__link">Learn more →</a>
+  </div>
+
+  <div class="ac-v5-fc">
+    <p class="ac-v5-fc__title">Feature three</p>
+    <hr class="ac-v5-fc__sep">
+    <p class="ac-v5-fc__desc">Brief description, one or two sentences max.</p>
+    <a href="/feature-3/" class="ac-v5-fc__link">Learn more →</a>
+  </div>
+
+  <div class="ac-v5-fc">
+    <p class="ac-v5-fc__title">Feature four</p>
+    <hr class="ac-v5-fc__sep">
+    <p class="ac-v5-fc__desc">Brief description, one or two sentences max.</p>
+    <a href="/feature-4/" class="ac-v5-fc__link">Learn more →</a>
+  </div>
+
+</div>
+
 **The `ac-v5-features` wrapper** applies the pastel gradient background and full-bleed width. If you want feature cards without the background section — for example, inline on a content page — drop the wrapper and use just the grid:
 
 ```html
@@ -72,6 +118,14 @@ The grid uses `grid-template-columns: repeat(4, minmax(0, 1fr))`. Wraps to 2-col
   <div class="ac-v5-fc">…</div>
 </div>
 ```
+
+<p style="font-size:0.72rem; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; color:#aaa; margin:1.5rem 0 0.5rem;">Preview</p>
+
+<div class="ac-v5-features__grid" style="margin:1rem 0;">
+  <div class="ac-v5-fc">…</div>
+  <div class="ac-v5-fc">…</div>
+  <div class="ac-v5-fc">…</div>
+</div>
 
 ---
 
@@ -93,6 +147,18 @@ Floating white cards with a subtle gradient background and hover shadow. Used fo
 </div>
 ```
 
+<p style="font-size:0.72rem; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; color:#aaa; margin:1.5rem 0 0.5rem;">Preview</p>
+
+<div class="rc-card">
+  <span class="rc-card__icon">🔌</span>
+  <p class="rc-card__title">Salesforce connector</p>
+  <p class="rc-card__desc">
+    Set up call logging, contact matching, and screen pop
+    for Salesforce CRM.
+  </p>
+  <a href="/crm/salesforce/" class="rc-card__link">View setup guide</a>
+</div>
+
 ### Linked card (entire card is clickable)
 
 Wrap the card in an `<a>` tag instead of using `.rc-card__link`:
@@ -104,6 +170,14 @@ Wrap the card in an `<a>` tag instead of using `.rc-card__link`:
   <p class="rc-card__desc">Set up call logging and contact matching.</p>
 </a>
 ```
+
+<p style="font-size:0.72rem; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; color:#aaa; margin:1.5rem 0 0.5rem;">Preview</p>
+
+<a href="/crm/salesforce/" class="rc-card" style="display:block; text-decoration:none;">
+  <span class="rc-card__icon">🔌</span>
+  <p class="rc-card__title">Salesforce connector</p>
+  <p class="rc-card__desc">Set up call logging and contact matching.</p>
+</a>
 
 ### Card grid (auto-fill)
 
@@ -143,6 +217,40 @@ The `rc-cards` grid fills columns automatically with `minmax(220px, 1fr)`:
 </div>
 ```
 
+<p style="font-size:0.72rem; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; color:#aaa; margin:1.5rem 0 0.5rem;">Preview</p>
+
+<div class="rc-cards">
+
+  <div class="rc-card">
+    <span class="rc-card__icon">🏢</span>
+    <p class="rc-card__title">Salesforce</p>
+    <p class="rc-card__desc">Log calls and sync contacts with Salesforce CRM.</p>
+    <a href="/crm/salesforce/" class="rc-card__link">Setup guide</a>
+  </div>
+
+  <div class="rc-card">
+    <span class="rc-card__icon">🎯</span>
+    <p class="rc-card__title">HubSpot</p>
+    <p class="rc-card__desc">Connect to HubSpot Sales Hub for call logging.</p>
+    <a href="/crm/hubspot/" class="rc-card__link">Setup guide</a>
+  </div>
+
+  <div class="rc-card">
+    <span class="rc-card__icon">⚖️</span>
+    <p class="rc-card__title">Clio</p>
+    <p class="rc-card__desc">Legal CRM integration for law firms.</p>
+    <a href="/crm/clio/" class="rc-card__link">Setup guide</a>
+  </div>
+
+  <div class="rc-card">
+    <span class="rc-card__icon">📋</span>
+    <p class="rc-card__title">NetSuite</p>
+    <p class="rc-card__desc">Sync calls and contacts with Oracle NetSuite.</p>
+    <a href="/crm/netsuite/" class="rc-card__link">Setup guide</a>
+  </div>
+
+</div>
+
 **Dark mode:** `rc-card` has a dark mode override that switches to `#151B2B` background with a lighter orange top border automatically — no extra work needed.
 
 ### `rc-card` anatomy reference
@@ -180,6 +288,23 @@ Full-card link tiles used on integration listing pages. The entire card is the l
 </a>
 ```
 
+<p style="font-size:0.72rem; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; color:#aaa; margin:1.5rem 0 0.5rem;">Preview</p>
+
+<a href="/crm/salesforce/" class="crm-mkt__card">
+  <div class="crm-mkt__card-top">
+    <div style="height:32px; width:120px; background:#e8e8e8; border-radius:4px;"></div>
+  </div>
+  <div class="crm-mkt__card-body">
+    <p class="crm-mkt__card-name">Salesforce</p>
+    <p class="crm-mkt__card-desc">
+      Log every call and sync contacts with Salesforce Sales Cloud and Service Cloud.
+    </p>
+  </div>
+  <div class="crm-mkt__card-foot">
+    <span class="crm-mkt__cta">View integration →</span>
+  </div>
+</a>
+
 ### Featured / partner card (orange top border)
 
 ```html
@@ -187,6 +312,23 @@ Full-card link tiles used on integration listing pages. The entire card is the l
   <!-- same structure as above -->
 </a>
 ```
+
+<p style="font-size:0.72rem; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; color:#aaa; margin:1.5rem 0 0.5rem;">Preview</p>
+
+<a href="/crm/salesforce/" class="crm-mkt__card crm-mkt__card--partner">
+  <div class="crm-mkt__card-top">
+    <div style="height:32px; width:120px; background:#e8e8e8; border-radius:4px;"></div>
+  </div>
+  <div class="crm-mkt__card-body">
+    <p class="crm-mkt__card-name">Salesforce</p>
+    <p class="crm-mkt__card-desc">
+      Log every call and sync contacts with Salesforce Sales Cloud and Service Cloud.
+    </p>
+  </div>
+  <div class="crm-mkt__card-foot">
+    <span class="crm-mkt__cta">View integration →</span>
+  </div>
+</a>
 
 ### Partner card grid
 
@@ -223,6 +365,38 @@ Full-card link tiles used on integration listing pages. The entire card is the l
 
 </div>
 ```
+
+<p style="font-size:0.72rem; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; color:#aaa; margin:1.5rem 0 0.5rem;">Preview</p>
+
+<div class="crm-mkt__grid">
+
+  <a href="/crm/salesforce/" class="crm-mkt__card crm-mkt__card--partner">
+    <div class="crm-mkt__card-top">
+      <div style="height:32px; width:120px; background:#e8e8e8; border-radius:4px;"></div>
+    </div>
+    <div class="crm-mkt__card-body">
+      <p class="crm-mkt__card-name">Salesforce</p>
+      <p class="crm-mkt__card-desc">Sales Cloud, Service Cloud, and Field Service.</p>
+    </div>
+    <div class="crm-mkt__card-foot">
+      <span class="crm-mkt__cta">View integration →</span>
+    </div>
+  </a>
+
+  <a href="/crm/hubspot/" class="crm-mkt__card">
+    <div class="crm-mkt__card-top">
+      <div style="height:32px; width:120px; background:#e8e8e8; border-radius:4px;"></div>
+    </div>
+    <div class="crm-mkt__card-body">
+      <p class="crm-mkt__card-name">HubSpot</p>
+      <p class="crm-mkt__card-desc">HubSpot Sales Hub and Service Hub.</p>
+    </div>
+    <div class="crm-mkt__card-foot">
+      <span class="crm-mkt__cta">View integration →</span>
+    </div>
+  </a>
+
+</div>
 
 ---
 
@@ -271,6 +445,48 @@ Dark frosted glass cards for use inside the navy AI section. Not meant to stand 
   </a>
 </div>
 ```
+
+<p style="font-size:0.72rem; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; color:#aaa; margin:1.5rem 0 0.5rem;">Preview</p>
+
+<div class="ac-v5-ai-section" style="width:100%; margin-left:0; border-radius:12px;">
+  <p class="ac-v5-ai-section__eyebrow">Section eyebrow</p>
+  <p class="ac-v5-ai-section__title">Section headline goes here.</p>
+  <p class="ac-v5-ai-section__desc">
+    Supporting description of the section. One to three sentences.
+  </p>
+
+  <div class="ac-v5-ai-section__grid">
+
+    <div class="ac-v5-ai-card">
+      <p class="ac-v5-ai-card__label">Card label</p>
+      <p class="ac-v5-ai-card__title">Card headline.</p>
+      <p class="ac-v5-ai-card__desc">
+        Two or three sentences of supporting detail.
+      </p>
+    </div>
+
+    <div class="ac-v5-ai-card">
+      <p class="ac-v5-ai-card__label">Card label</p>
+      <p class="ac-v5-ai-card__title">Card headline.</p>
+      <p class="ac-v5-ai-card__desc">
+        Two or three sentences of supporting detail.
+      </p>
+    </div>
+
+    <div class="ac-v5-ai-card">
+      <p class="ac-v5-ai-card__label">Card label</p>
+      <p class="ac-v5-ai-card__title">Card headline.</p>
+      <p class="ac-v5-ai-card__desc">
+        Two or three sentences of supporting detail.
+      </p>
+    </div>
+
+  </div>
+
+  <a href="/feature/" class="ac-v5-ai-section__cta">
+    Learn more →
+  </a>
+</div>
 
 ---
 

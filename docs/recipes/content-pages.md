@@ -70,6 +70,39 @@ Brief description of what this section contains and who it's for.
 </div>
 ```
 
+<p style="font-size:0.72rem; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; color:#aaa; margin:1.5rem 0 0.5rem;">Preview</p>
+
+<div class="rc-cards">
+
+  <div class="rc-card">
+    <span class="rc-card__icon">🔘</span>
+    <p class="rc-card__title">Buttons</p>
+    <p class="rc-card__desc">
+      Primary, secondary, tertiary, icon, and destructive action variants.
+    </p>
+    <a href="buttons/" class="rc-card__link">View component</a>
+  </div>
+
+  <div class="rc-card">
+    <span class="rc-card__icon">✏️</span>
+    <p class="rc-card__title">Inputs</p>
+    <p class="rc-card__desc">
+      Text fields, textareas, and field states.
+    </p>
+    <a href="inputs/" class="rc-card__link">View component</a>
+  </div>
+
+  <div class="rc-card">
+    <span class="rc-card__icon">🃏</span>
+    <p class="rc-card__title">Cards</p>
+    <p class="rc-card__desc">
+      Content containers with optional media and actions.
+    </p>
+    <a href="cards/" class="rc-card__link">View component</a>
+  </div>
+
+</div>
+
 ---
 
 ## Integration / CRM page intro (with hero-style header)
@@ -104,6 +137,35 @@ Product pages for individual integrations use a light header section with the pa
   </div>
 </div>
 ```
+
+<p style="font-size:0.72rem; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; color:#aaa; margin:1.5rem 0 0.5rem;">Preview</p>
+
+<div class="crm-mkt__hero" style="width:100%; margin-left:0; border-radius:12px; overflow:hidden;">
+  <div>
+    <img src="../img/crm-logo-salesforce.png"
+         alt="Salesforce"
+         style="height:48px; margin-bottom:1rem; display:block;" />
+    <h1 class="crm-mkt__hero-title">Salesforce integration</h1>
+    <p class="crm-mkt__hero-sub">
+      Log every call, sync contacts, and surface the right CRM record
+      the moment a call arrives — all without leaving RingEX.
+    </p>
+    <div class="crm-mkt__hero-stats">
+      <div class="crm-mkt__stat">
+        <span class="crm-mkt__stat-num">100%</span>
+        <span class="crm-mkt__stat-label">Calls logged</span>
+      </div>
+      <div class="crm-mkt__stat">
+        <span class="crm-mkt__stat-num">0</span>
+        <span class="crm-mkt__stat-label">Manual entries</span>
+      </div>
+      <div class="crm-mkt__stat">
+        <span class="crm-mkt__stat-num">Real-time</span>
+        <span class="crm-mkt__stat-label">CRM sync</span>
+      </div>
+    </div>
+  </div>
+</div>
 
 The `.crm-mkt__hero` class applies a pastel gradient background and handles responsive layout. The `crm-mkt__stat` elements display in a horizontal row with a left-border separator between them.
 
@@ -288,6 +350,30 @@ For side-by-side comparisons or a "do / don't" visual layout:
 
 </div>
 ```
+
+<p style="font-size:0.72rem; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; color:#aaa; margin:1.5rem 0 0.5rem;">Preview</p>
+
+<div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin: 1.5rem 0;">
+
+  <div style="border: 2px solid #2E7D32; border-radius: 8px; padding: 1rem;">
+    <p style="font-size: 0.75rem; font-weight: 700; text-transform: uppercase;
+              letter-spacing: 0.06em; color: #2E7D32; margin: 0 0 0.5rem;">✓ Do</p>
+    <p style="margin: 0; font-size: 0.875rem;">
+      Use one primary button per view. The primary button is the
+      single most important action on the screen.
+    </p>
+  </div>
+
+  <div style="border: 2px solid #D32F2F; border-radius: 8px; padding: 1rem;">
+    <p style="font-size: 0.75rem; font-weight: 700; text-transform: uppercase;
+              letter-spacing: 0.06em; color: #D32F2F; margin: 0 0 0.5rem;">✗ Don't</p>
+    <p style="margin: 0; font-size: 0.875rem;">
+      Stack multiple primary buttons next to each other. This
+      dilutes hierarchy and forces users to choose without guidance.
+    </p>
+  </div>
+
+</div>
 
 ---
 
