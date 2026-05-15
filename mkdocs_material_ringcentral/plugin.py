@@ -4,10 +4,11 @@ mkdocs-ringcentral plugin
 Self-contained RingCentral 2026 brand layer for MkDocs Material.
 
 Bundles everything the site needs so nothing has to live outside this package:
-  - templates/main.html  — Jinja2 override (announce banner + RC Labs footer)
-  - assets/ringcentral.css — full brand CSS (header gradient, sidebar, dark mode…)
-  - assets/ringcentral.js  — ticker + footer JS
-  - assets/extra.js        — GitHub Pages → appconnect.labs.ringcentral.com redirect
+  - templates/_rc_base.html — Jinja2 base (announce banners + RC Labs footer)
+  - templates/main.html     — thin shim used by sites without a custom_dir
+  - assets/ringcentral.css  — full brand CSS (header gradient, sidebar, dark mode…)
+  - assets/ringcentral.js   — ticker + footer JS
+  - assets/extra.js         — GitHub Pages → appconnect.labs.ringcentral.com redirect
   - assets/RingCentral_logo_color.png — site logo
 
 What each hook does
@@ -16,9 +17,17 @@ on_config      Prepends _rc/ringcentral.css and _rc/extra.js to extra_css /
                extra_javascript.  Sets theme.logo to the bundled PNG so
                mkdocs.yml does not need a logo entry.
 
-on_env         Inserts this package's templates/ directory at the front of the
-               Jinja2 loader chain, so main.html overrides Material's default
-               without requiring custom_dir: overrides in mkdocs.yml.
+               If the site defines a custom_dir AND has its own main.html
+               there, copies _rc_base.html into that custom_dir so it is
+               available in the Jinja2 search path without any loader tricks.
+               This is more robust than loader injection because it survives
+               other plugins (e.g. print-site) rewriting env.loader in their
+               own on_env hooks.
+
+on_env         Only used by sites that have NO custom main.html. In that case
+               the plugin's templates/ dir is prepended to the loader chain so
+               the built-in main.html shim (which extends _rc_base.html) is
+               picked up automatically.
 
 on_post_build  Copies all bundled assets into <site_dir>/_rc/ and also writes
                the logo to <site_dir>/img/ (the path mkdocs.yml previously used)
@@ -103,37 +112,50 @@ class RingCentralPlugin(BasePlugin):
             config["extra"] = {}
         config["extra"]["_labs_active_project"] = active
 
+        # ---- Make _rc_base.html available to sites with a custom_dir ----
+        # If the site has a custom_dir with its own main.html, we cannot
+        # rely on on_env loader injection because other plugins (e.g.
+        # print-site) may overwrite env.loader after we modify it.
+        # The safest approach is to copy _rc_base.html directly into the
+        # site's custom_dir — it is already in Jinja2's search path, so
+        # no loader manipulation is needed at all.
+        #
+        # NOTE: Theme.custom_dir is a @property, NOT a dict key — must use
+        # getattr(), not theme.get("custom_dir"), which always returns None.
+        theme = config.get("theme")
+        custom_dir = getattr(theme, "custom_dir", None)
+        self._use_loader_injection = True
+        if custom_dir and os.path.isdir(custom_dir):
+            site_main = os.path.join(custom_dir, "main.html")
+            if os.path.exists(site_main):
+                self._use_loader_injection = False
+                shutil.copy(
+                    os.path.join(TEMPLATES_DIR, "_rc_base.html"),
+                    os.path.join(custom_dir, "_rc_base.html"),
+                )
+
         return config
 
     # ------------------------------------------------------------------
     # 2. Inject our templates into the Jinja2 loader chain
     # ------------------------------------------------------------------
     def on_env(self, env, config, files):
-        """Insert the plugin's templates/ into the Jinja2 loader chain.
+        """Prepend plugin templates when the site has no custom main.html.
 
-        Loader order depends on whether the site defines a custom_dir:
+        When the site has its own custom_dir/main.html, _rc_base.html was
+        already copied there by on_config, so the Jinja2 search path already
+        covers it — no loader change needed, and we avoid the fragility of
+        other plugins overwriting env.loader after us.
 
-        • No custom_dir  →  [plugin, Material]
-          The plugin's main.html shim is found first and extends _rc_base.html
-          for full RC branding out of the box.
-
-        • Has custom_dir →  [custom_dir, plugin, Material]
-          The site's main.html (which should extend "_rc_base.html") is found
-          first, so the site controls the announce block and any other overrides
-          while still inheriting the RC footer and all other plugin blocks.
+        When there is no custom main.html, we prepend our templates/ dir so
+        the built-in main.html shim ({% extends "_rc_base.html" %}) is found
+        and full RC branding is applied automatically.
         """
-        plugin_loader = FileSystemLoader(TEMPLATES_DIR)
-        custom_dir = (config.get("theme") or {}).get("custom_dir")
-
-        if custom_dir and hasattr(env.loader, "loaders") and len(env.loader.loaders) > 1:
-            # custom_dir loader is first in the existing chain; insert plugin after it
-            loaders = list(env.loader.loaders)
-            env.loader = ChoiceLoader([loaders[0], plugin_loader] + loaders[1:])
-        else:
-            # No custom_dir — plugin goes before Material
-            env.loader = ChoiceLoader([plugin_loader, env.loader])
-
+        if getattr(self, "_use_loader_injection", True):
+            env.loader = ChoiceLoader([FileSystemLoader(TEMPLATES_DIR), env.loader])
         return env
+
+
 
     # ------------------------------------------------------------------
     # 3. Copy all assets into the built site
