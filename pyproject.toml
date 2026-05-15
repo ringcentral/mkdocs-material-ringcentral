@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "mkdocs-material-ringcentral"
-version = "1.0.2"
+version = "1.1.0"
 description = "RingCentral 2026 brand layer plugin for MkDocs Material"
 readme = "README.md"
 license = { text = "MIT" }

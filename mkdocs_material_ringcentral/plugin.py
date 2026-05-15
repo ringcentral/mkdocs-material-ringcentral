@@ -109,11 +109,30 @@ class RingCentralPlugin(BasePlugin):
     # 2. Inject our templates into the Jinja2 loader chain
     # ------------------------------------------------------------------
     def on_env(self, env, config, files):
-        """Prepend our templates/ dir so main.html overrides Material's."""
-        env.loader = ChoiceLoader([
-            FileSystemLoader(TEMPLATES_DIR),
-            env.loader,
-        ])
+        """Insert the plugin's templates/ into the Jinja2 loader chain.
+
+        Loader order depends on whether the site defines a custom_dir:
+
+        • No custom_dir  →  [plugin, Material]
+          The plugin's main.html shim is found first and extends _rc_base.html
+          for full RC branding out of the box.
+
+        • Has custom_dir →  [custom_dir, plugin, Material]
+          The site's main.html (which should extend "_rc_base.html") is found
+          first, so the site controls the announce block and any other overrides
+          while still inheriting the RC footer and all other plugin blocks.
+        """
+        plugin_loader = FileSystemLoader(TEMPLATES_DIR)
+        custom_dir = (config.get("theme") or {}).get("custom_dir")
+
+        if custom_dir and hasattr(env.loader, "loaders") and len(env.loader.loaders) > 1:
+            # custom_dir loader is first in the existing chain; insert plugin after it
+            loaders = list(env.loader.loaders)
+            env.loader = ChoiceLoader([loaders[0], plugin_loader] + loaders[1:])
+        else:
+            # No custom_dir — plugin goes before Material
+            env.loader = ChoiceLoader([plugin_loader, env.loader])
+
         return env
 
     # ------------------------------------------------------------------
